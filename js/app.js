@@ -14,9 +14,12 @@ var finalPile1 = [];
 var finalPile2 = [];
 var finalPile3 = [];
 var finalPile4 = [];
+var firstClicked = [];
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
+
+//set up the board
 function init() {
     staticCards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12, 13, 14, 15, 16, 17 , 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
     deck = staticCards;
@@ -28,16 +31,10 @@ function init() {
     makePile(boardPile5, 5);
     makePile(boardPile6, 6);
     makePile(boardPile7, 7);
-    console.log(boardPile1);
-    console.log(boardPile2);
-    console.log(boardPile3);
-    console.log(boardPile4);
-    console.log(boardPile5);
-    console.log(boardPile6);
-    console.log(boardPile7);
-    
+    console.log(deck);
 }
 
+//deck randomizer
 function makeRandom(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -48,9 +45,116 @@ function makeRandom(arr) {
     return arr;
 }
 
+// create initial piles
 function makePile(pile, num) {
     for (var i = 0; i < num; i++)
-    pile.push(deck.shift());
+    pile.unshift(deck.shift());
 }
 
 init();
+
+// moving cards click events
+document.querySelectorAll(".boardPile").addEventListener("click", handleClick)
+
+function handleClick(evt) {
+    if (firstClicked === []) {
+        target.div.style.id
+        firstClicked = clickedPile}
+    else {
+        target.div.style.id;
+        target.unshift(shift(clickedPile));
+        firstClicked = [];
+    }
+}
+
+// legal moves
+
+function checkBoardMove(firstPile, secondPile) {
+    var firstNumber = firstPile[0];
+    var secondNumber = secondPile[0];
+    if (secondPile === []) {
+        legal(firstPile, secondPile);
+    }
+    else if (staticCards[firstNumber] === 12 || staticCards[firstNumber] === 25 || staticCards[firstNumber] === 38 || staticCards[firstNumber] === 51 ) {
+        illegal();
+    }
+    else switch (staticCards[firstNumber-1]) {
+        case staticCards[firstNumber-1] < 13:
+            if (staticCards[secondNumber] === staticCards[firstNumber] + 26 || staticCards[secondNumber] === staticCards[firstNumber] + 39) {
+                legal();
+            }
+            else notLegal();
+            break;
+        case staticCards[firstNumber-1] < 26:
+            if (staticCards[secondNumber] === staticCards[firstNumber] + 13 || staticCards[secondNumber] === staticCards[firstNumber] + 26) {
+            legal();
+        }
+            else notLegal();
+            break;
+        case staticCards[firstNumber-1] < 39:
+            if (staticCards[secondNumber] === staticCards[firstNumber] -13 || staticCards[secondNumber] === staticCards[firstNumber] - 26) {
+            legal();
+        }
+            else illegal();
+            break;
+        default:
+            if (staticCards[secondNumber] === staticCards[firstNumber] -26 || staticCards[secondNumber] === staticCards[firstNumber] - 39) {
+            legal();
+        }
+            else illegal();
+            break;
+    }
+
+}
+
+function checkFinalMove(firstPile, secondPile) {
+    var firstNumber = firstPile[0];
+    var secondNumber = secondPile[0];
+    if (secondPile === []) {
+        legal();
+    }
+    else if (firstNumber === staticPile[0] || firstNumber === staticPile[13] || firstNumber === staticPile[26] || firstNumber === staticPile[39])
+        illegal();
+
+    else if (staticPile[firstNumber] === staticPile[secondNumber+1]) {
+        legal();
+    }
+    else illegal()}
+    
+function legal(firstPile, secondPile) {
+    secondPile.unshift(shift(firstPile));
+}
+function illegal() {
+    console.log("Not a legal move");
+}
+    
+
+    // board pile to board pile (include empty rules)
+    // board pile to final pile
+    // deck pile to final pile
+    // deck pile to board pile
+
+
+// reshuffle deck - add click event to empty deck?
+function reshuffleDeck() {
+    if (deck === []) {
+    deck = makeRandom(pile);
+    pile = [];
+}
+    else return;
+// remove the click event
+}
+
+// win condition
+
+// resest button
+
+// move counter
+
+// timer?
+
+// score?
+
+// save high scores?
+
+// render
