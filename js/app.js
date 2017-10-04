@@ -14,7 +14,7 @@ var finalPile1 = [];
 var finalPile2 = [];
 var finalPile3 = [];
 var finalPile4 = [];
-var firstClicked = [];
+var firstPile = [];
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -54,25 +54,127 @@ function makePile(pile, num) {
 init();
 
 // moving cards click events
-document.querySelectorAll(".boardPile").addEventListener("click", handleClick)
+// document.querySelector(".boardPile").children.addEventListener("click", handleClick);
+document.querySelector("#deck").addEventListener("click", handleClick);
+document.querySelector("#deckPile").addEventListener("click", handleClick);
+document.querySelector("#boardPile1").addEventListener("click", handleClick);
+document.querySelector("#boardPile2").addEventListener("click", handleClick);
+document.querySelector("#boardPile3").addEventListener("click", handleClick);
+document.querySelector("#boardPile4").addEventListener("click", handleClick);
+document.querySelector("#boardPile5").addEventListener("click", handleClick);
+document.querySelector("#boardPile6").addEventListener("click", handleClick);
+document.querySelector("#boardPile7").addEventListener("click", handleClick);
+
+
+
 
 function handleClick(evt) {
-    if (firstClicked === []) {
-        target.div.style.id
-        firstClicked = clickedPile}
+    if (firstPile.length === 0) {
+        switch (evt.target.id) {
+            case "deck":
+                if (deck.length === 0) {
+                    reshuffleDeck();
+                }
+                
+                console.log(deck)                
+            break;
+            case "deckPile":
+                
+                console.log(firstPile);
+                break;
+            case "boardPile1":
+                
+                console.log(firstPile);
+                break;
+            case "boardPile2":
+                
+                console.log(firstPile)                                
+                break;
+            case "boardPile3":
+                
+                console.log(firstPile)                                                
+                break;
+            case "boardPile4":
+                
+                console.log(firstPile)                                                
+                break;
+            case "boardPile5":
+                
+                console.log(firstPile)                                                
+                break;
+            case "boardPile6":
+                
+                console.log(firstPile)                                                
+                break;
+            case "boardPile7":
+                
+                console.log(firstPile)                                                
+                break;
+            case "finalPile1":
+                
+                break;
+            case "finalPile2":
+                
+                break;
+            case "finalPile3":
+                
+                break;
+            case "finalPile4":
+                
+                break;
+    }}
     else {
-        target.div.style.id;
-        target.unshift(shift(clickedPile));
-        firstClicked = [];
+        switch (evt.target.id) {
+            case "deck":
+                illegal();
+                break;
+            case "deckPile":
+                illegal();
+                break;
+            case "boardPile1":
+                checkBoardMove(firstPile, boardPile1)
+                break;
+            case "boardPile2":
+                checkBoardMove(firstPile, boardPile2)
+                break;
+            case "boardPile3":
+                checkBoardMove(firstPile, boardPile3)
+                break;
+            case "boardPile4":
+                checkBoardMove(firstPile, boardPile4)
+                break;
+            case "boardPile5":
+                checkBoardMove(firstPile, boardPile5)
+                break;
+            case "boardPile6":
+                checkBoardMove(firstPile, boardPile6)
+                break;
+            case "boardPile7":
+                checkBoardMove(firstPile, boardPile7)
+                break;
+            case "finalPile1":
+                checkFinalMove(firstPile, finalPile1)
+                break;
+            case "finalPile2":
+                checkFinalMove(firstPile, finalPile2)                
+                break;
+            case "finalPile3":
+                checkFinalMove(firstPile, finalPile3)                
+                break;
+            case "finalPile4":
+                checkFinalMove(firstPile, finalPile4)                
+                break;
     }
-}
+}}
+
+
 
 // legal moves
 
 function checkBoardMove(firstPile, secondPile) {
     var firstNumber = firstPile[0];
     var secondNumber = secondPile[0];
-    if (secondPile === []) {
+    if (secondPile.length === 0) {
         legal(firstPile, secondPile);
     }
     else if (staticCards[firstNumber] === 12 || staticCards[firstNumber] === 25 || staticCards[firstNumber] === 38 || staticCards[firstNumber] === 51 ) {
@@ -83,13 +185,13 @@ function checkBoardMove(firstPile, secondPile) {
             if (staticCards[secondNumber] === staticCards[firstNumber] + 26 || staticCards[secondNumber] === staticCards[firstNumber] + 39) {
                 legal();
             }
-            else notLegal();
+            else illegal();
             break;
         case staticCards[firstNumber-1] < 26:
             if (staticCards[secondNumber] === staticCards[firstNumber] + 13 || staticCards[secondNumber] === staticCards[firstNumber] + 26) {
             legal();
         }
-            else notLegal();
+            else illegal();
             break;
         case staticCards[firstNumber-1] < 39:
             if (staticCards[secondNumber] === staticCards[firstNumber] -13 || staticCards[secondNumber] === staticCards[firstNumber] - 26) {
@@ -104,13 +206,12 @@ function checkBoardMove(firstPile, secondPile) {
             else illegal();
             break;
     }
-
 }
 
 function checkFinalMove(firstPile, secondPile) {
     var firstNumber = firstPile[0];
     var secondNumber = secondPile[0];
-    if (secondPile === []) {
+    if (secondPile.lenth === 0) {
         legal();
     }
     else if (firstNumber === staticPile[0] || firstNumber === staticPile[13] || firstNumber === staticPile[26] || firstNumber === staticPile[39])
@@ -122,9 +223,11 @@ function checkFinalMove(firstPile, secondPile) {
     else illegal()}
     
 function legal(firstPile, secondPile) {
-    secondPile.unshift(shift(firstPile));
+    secondPile.unshift(firstPile.shift());
+    firstPile = [];
 }
 function illegal() {
+    firstPile = [];
     console.log("Not a legal move");
 }
     
