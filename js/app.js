@@ -413,30 +413,52 @@ function renderPiles() {
 function flipFirstCard() {
     if (deckPile.length > 0) {
         $('deckPile').addClass('faceUp')}
-    else {$('deckPile').removeClass('faceUp')}
+    else {$('deckPile').removeClass('faceUp')};
     if (boardPile1.length > 0); {
         $(boardState1[boardPile1.length-1]).addClass('faceUp')};
     if (boardPile2.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')};
+        $(boardState2[boardPile2.length-1]).addClass('faceUp')};
     if (boardPile3.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+        $(boardState3[boardPile3.length-1]).addClass('faceUp')}
     if (boardPile4.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+        $(boardState4[boardPile4.length-1]).addClass('faceUp')}
     if (boardPile5.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+        $(boardState5[boardPile5.length-1]).addClass('faceUp')}
     if (boardPile6.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+        $(boardState6[boardPile6.length-1]).addClass('faceUp')}
     if (boardPile7.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp')}};
+        $(boardState7[boardPile7.length-1]).addClass('faceUp')}};
 
-
-// function renderboardPile7() {
-// var sevenUp = 0;
-// sevenUp = $(".boardPile7.faceup")
-// console.log(sevenUp);
-// for (var i = 0; i < sevenUp.length; i++)
-// renderCard(boardPile7, boardPile7[i])
-// }
+function renderFaceDowns() {  
+for (var i = 0; i < boardPile1.length; i++)
+    if ($(boardState1[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState1[i]).addClass('back-red')}
+for (var i = 0; i < boardPile2.length; i++)
+    if ($(boardState2[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState2[i]).addClass('back-red')}
+for (var i = 0; i < boardPile3.length; i++)
+    if ($(boardState3[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState3[i]).addClass('back-red')}
+for (var i = 0; i < boardPile4.length; i++)
+    if ($(boardState4[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState4[i]).addClass('back-red')}
+for (var i = 0; i < boardPile5.length; i++)
+    if ($(boardState5[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState5[i]).addClass('back-red')}
+for (var i = 0; i < boardPile6.length; i++)
+    if ($(boardState6[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState6[i]).addClass('back-red')}
+for (var i = 0; i < boardPile7.length; i++)
+    if ($(boardState7[i]).hasClass('faceUp' || 'empty' || 'back-red'))
+        {console.log("Yay!")}
+    else {$(boardState7[i]).addClass('back-red')}
+}
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -562,6 +584,7 @@ function render() {
     flipFirstCard();    
     renderImages();
     renderDeck();
+    renderFaceDowns();
 }
 
 init();
