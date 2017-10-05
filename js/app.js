@@ -1,3 +1,4 @@
+$(function() {
 
 var staticCards = [];
 var deck = [];
@@ -15,6 +16,8 @@ var finalPile2 = [];
 var finalPile3 = [];
 var finalPile4 = [];
 var firstPile = [];
+var faceUp = [];
+var boardPile1Group = [];
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -31,6 +34,7 @@ function init() {
     makePile(boardPile5, 5);
     makePile(boardPile6, 6);
     makePile(boardPile7, 7);
+    render();
     console.log(deck);
 }
 
@@ -51,80 +55,83 @@ function makePile(pile, num) {
     pile.unshift(deck.shift());
 }
 
-init();
-
 // moving cards click events
 // document.querySelector(".boardPile").children.addEventListener("click", handleClick);
-document.querySelector("#deck").addEventListener("click", handleClick);
-document.querySelector("#deckPile").addEventListener("click", handleClick);
-document.querySelector("#boardPile1").addEventListener("click", handleClick);
-document.querySelector("#boardPile2").addEventListener("click", handleClick);
-document.querySelector("#boardPile3").addEventListener("click", handleClick);
-document.querySelector("#boardPile4").addEventListener("click", handleClick);
-document.querySelector("#boardPile5").addEventListener("click", handleClick);
-document.querySelector("#boardPile6").addEventListener("click", handleClick);
-document.querySelector("#boardPile7").addEventListener("click", handleClick);
+// document.querySelectorAll(".deck").addEventListener("click", handleClick);
+// document.querySelectorAll(".deckPile").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile1").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile2").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile3").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile4").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile5").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile6").addEventListener("click", handleClick);
+// document.querySelectorAll(".boardPile7").addEventListener("click", handleClick);
 
+boardPile1Group = document.querySelectorAll(".boardPile1");
+boardPile1Group.forEach(function() {
+    this.addEventListener("click", handleClick);
+})
 
 
 
 function handleClick(evt) {
     if (firstPile.length === 0) {
-        switch (evt.target.id) {
+        switch (evt.target.class) {
             case "deck":
                 if (deck.length === 0) {
                     reshuffleDeck();
                 }
-                
-                console.log(deck)                
+                else {deckPile.unshift(deck.shift());
+                console.log(deck)}               
             break;
             case "deckPile":
-                
+            // firstPile = deckPile.substr(0, x) where x is location of clicked target
+                firstPile = deckPile;
                 console.log(firstPile);
                 break;
             case "boardPile1":
-                
+                firstPile = boardPile1;
                 console.log(firstPile);
                 break;
             case "boardPile2":
-                
+                firstPile = boardPile2;
                 console.log(firstPile)                                
                 break;
             case "boardPile3":
-                
+                firstPile = boardPile3;
                 console.log(firstPile)                                                
                 break;
             case "boardPile4":
-                
+                firstPile = boardPile4;
                 console.log(firstPile)                                                
                 break;
             case "boardPile5":
-                
+                firstPile = boardPile5;
                 console.log(firstPile)                                                
                 break;
             case "boardPile6":
-                
+                firstPile = boardPile6;
                 console.log(firstPile)                                                
                 break;
             case "boardPile7":
-                
+                firstPile = boardPile7;
                 console.log(firstPile)                                                
                 break;
             case "finalPile1":
-                
+                firstPile = boardPile1;
                 break;
             case "finalPile2":
-                
+                firstPile = boardPile2;
                 break;
             case "finalPile3":
-                
+                firstPile = boardPile3;
                 break;
             case "finalPile4":
-                
+                firstPile = boardPile4;
                 break;
     }}
     else {
-        switch (evt.target.id) {
+        switch (evt.target.class) {
             case "deck":
                 illegal();
                 break;
@@ -172,7 +179,7 @@ function handleClick(evt) {
 // legal moves
 
 function checkBoardMove(firstPile, secondPile) {
-    var firstNumber = firstPile[0];
+    var firstNumber = firstPile[firstPile.length-1];
     var secondNumber = secondPile[0];
     if (secondPile.length === 0) {
         legal(firstPile, secondPile);
@@ -209,7 +216,7 @@ function checkBoardMove(firstPile, secondPile) {
 }
 
 function checkFinalMove(firstPile, secondPile) {
-    var firstNumber = firstPile[0];
+    var firstNumber = firstPile[firstPile.length-1];
     var secondNumber = secondPile[0];
     if (secondPile.lenth === 0) {
         legal();
@@ -223,8 +230,62 @@ function checkFinalMove(firstPile, secondPile) {
     else illegal()}
     
 function legal(firstPile, secondPile) {
-    secondPile.unshift(firstPile.shift());
+    for (var i = firstPile.length; i > 0; i--)
+    {secondPile.unshift(firstPile[i-1]);}
+    secondPile.unshift("placeholder");
+    switch (firstPile) {
+    // deckPile.substr(0, firstPile.length)
+        case deckPile.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) 
+                {deckPile.shift()}
+        break;
+        case boardPile1.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) 
+                {boardPile1.shift()}
+        break;
+        case boardPile2.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {boardPile2.shift()}
+        break;
+        case boardPile3.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {boardPile3.shift()}
+        break;
+        case boardPile4.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) {
+                boardPile4.shift()}
+        break;
+        case boardPile5.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) {
+                boardPile5.shift()}
+        break;
+        case boardPile6.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {boardPile6.shift()}
+        break;
+        case boardPile7.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {boardPile7.shift()}
+        break;
+        case finalPile1.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) {
+                finalPile1.shift()}
+        break;
+        case finalPile2.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--) {
+                finalPile2.shift()}
+        break;
+        case finalPile3.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {finalPile3.shift()}
+        break;
+        case finalPile4.substr(0, firstPile.length): 
+            for (var i = firstPile.length; i > 0; i--)
+                {finalPile4.shift()}
+        break;
+    }
     firstPile = [];
+    secondPile.shift();
 }
 function illegal() {
     firstPile = [];
@@ -240,7 +301,7 @@ function illegal() {
 
 // reshuffle deck - add click event to empty deck?
 function reshuffleDeck() {
-    if (deck === []) {
+    if (deck.length === 0) {
     deck = makeRandom(pile);
     pile = [];
 }
@@ -249,6 +310,12 @@ function reshuffleDeck() {
 }
 
 // win condition
+function checkWin() {
+    if ((finalPile1[0] === staticPile[12] || finalPile1[0] === staticPile[25] || finalPile1[0] === staticPile[38] || finalPile1[0] === staticPile[51]) && (finalPile2[0] === staticPile[12] || finalPile2[0] === staticPile[25] || finalPile2[0] === staticPile[38] || finalPile2[0] === staticPile[51]) && (finalPile3[0] === staticPile[12] || finalPile3[0] === staticPile[25] || finalPile3[0] === staticPile[38] || finalPile3[0] === staticPile[51]) && (finalPile4[0] === staticPile[12] || finalPile4[0] === staticPile[25] || finalPile4[0] === staticPile[38] || finalPile4[0] === staticPile[51])) {
+        console.log("You win!");
+    }
+    else return;
+}
 
 // resest button
 
@@ -261,3 +328,145 @@ function reshuffleDeck() {
 // save high scores?
 
 // render
+function render() {
+    checkWin();
+    renderImages()
+}
+
+function renderImages() {
+    for (var i = 0; i < boardPile1.length; i++) {
+        boardPile1[i]
+    }
+
+}
+$("boardPile1").html("");
+
+function renderDeck() {
+    if (deck.length > 0) {
+        $('.deck').addClass('card').addClass('back-red');
+    }
+    else $(".deck").removeClass('back-red').html("reshuffle?")
+}
+
+
+
+// Ace: 0, king: 12 
+// 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
+//feedinstaticcards[i]
+function renderCard(pile, num) {
+    switch(num) {
+    case 0: $(pile).addClass('hA');
+        break;
+    case 1: $(pile).addClass('h02');
+        break;
+    case 2: $(pile).addClass('h03');
+        break;
+    case 3: $(pile).addClass('h04');
+        break;
+    case 4: $(pile).addClass('h05');
+        break;
+    case 5: $(pile).addClass('h06');
+        break;
+    case 6: $(pile).addClass('h07');
+        break;
+    case 7: $(pile).addClass('h08');
+        break;
+    case 8: $(pile).addClass('h09');
+        break;
+    case 9: $(pile).addClass('h10');
+        break;
+    case 10: $(pile).addClass('hJ');
+        break;
+    case 11: $(pile).addClass('hQ');
+        break;
+    case 12: $(pile).addClass('hK');
+        break;
+    case 13: $(pile).addClass('dA');
+        break;
+    case 14: $(pile).addClass('d02');
+        break;
+    case 15: $(pile).addClass('d03');
+        break;
+    case 16: $(pile).addClass('d04');
+        break;
+    case 17: $(pile).addClass('d05');
+        break;
+    case 18: $(pile).addClass('d06');
+        break;
+    case 19: $(pile).addClass('d07');
+        break;
+    case 20: $(pile).addClass('d08');
+        break;
+    case 21: $(pile).addClass('d09');
+        break;
+    case 22: $(pile).addClass('d10');
+        break;
+    case 23: $(pile).addClass('dJ');
+        break;
+    case 24: $(pile).addClass('dQ');
+        break;
+    case 25: $(pile).addClass('dK');
+        break;
+    case 26: $(pile).addClass('sA');
+        break;
+    case 27: $(pile).addClass('s02');
+        break;
+    case 28: $(pile).addClass('s03');
+        break;
+    case 29: $(pile).addClass('s04');
+        break;
+    case 30: $(pile).addClass('s05');
+        break;
+    case 31: $(pile).addClass('s06');
+        break;
+    case 32: $(pile).addClass('s07');
+        break;
+    case 33: $(pile).addClass('s08');
+        break;
+    case 34: $(pile).addClass('s09');
+        break;
+    case 35: $(pile).addClass('s10');
+        break;
+    case 36: $(pile).addClass('sJ');
+        break;
+    case 37: $(pile).addClass('sQ');
+        break;
+    case 38: $(pile).addClass('sK');
+        break;
+    case 39: $(pile).addClass('cA');
+        break;
+    case 40: $(pile).addClass('c02');
+        break;
+    case 41: $(pile).addClass('c03');
+        break;
+    case 42: $(pile).addClass('c04');
+        break;
+    case 43: $(pile).addClass('c05');
+        break;
+    case 44: $(pile).addClass('c06');
+        break;
+    case 45: $(pile).addClass('c07');
+        break;
+    case 46: $(pile).addClass('c08');
+        break;
+    case 47: $(pile).addClass('c09');
+        break;
+    case 48: $(pile).addClass('c10');
+        break;
+    case 49: $(pile).addClass('cJ');
+        break;
+    case 50: $(pile).addClass('cQ');
+        break;
+    case 51: $(pile).addClass('cK');
+        break;
+}}
+
+function render() {
+    renderDeck();
+}
+
+init();
+renderCard(".boardPile1", boardPile1[0]);
+console.log(boardPile1[0]);
+
+})
