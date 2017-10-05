@@ -18,6 +18,13 @@ var finalPile4 = [];
 var firstPile = [];
 var faceUp = [];
 var boardPile1Group = [];
+var boardState1 = [];
+var boardState2 = [];
+var boardState3 = [];
+var boardState4 = [];
+var boardState5 = [];
+var boardState6 = [];
+var boardState7 = [];
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -35,7 +42,6 @@ function init() {
     makePile(boardPile6, 6);
     makePile(boardPile7, 7);
     render();
-    console.log(deck);
 }
 
 //deck randomizer
@@ -221,10 +227,10 @@ function checkFinalMove(firstPile, secondPile) {
     if (secondPile.lenth === 0) {
         legal();
     }
-    else if (firstNumber === staticPile[0] || firstNumber === staticPile[13] || firstNumber === staticPile[26] || firstNumber === staticPile[39])
+    else if (firstNumber === staticCards[0] || firstNumber === staticCards[13] || firstNumber === staticCards[26] || firstNumber === staticCards[39])
         illegal();
 
-    else if (staticPile[firstNumber] === staticPile[secondNumber+1]) {
+    else if (staticCards[firstNumber] === staticCards[secondNumber+1]) {
         legal();
     }
     else illegal()}
@@ -311,7 +317,7 @@ function reshuffleDeck() {
 
 // win condition
 function checkWin() {
-    if ((finalPile1[0] === staticPile[12] || finalPile1[0] === staticPile[25] || finalPile1[0] === staticPile[38] || finalPile1[0] === staticPile[51]) && (finalPile2[0] === staticPile[12] || finalPile2[0] === staticPile[25] || finalPile2[0] === staticPile[38] || finalPile2[0] === staticPile[51]) && (finalPile3[0] === staticPile[12] || finalPile3[0] === staticPile[25] || finalPile3[0] === staticPile[38] || finalPile3[0] === staticPile[51]) && (finalPile4[0] === staticPile[12] || finalPile4[0] === staticPile[25] || finalPile4[0] === staticPile[38] || finalPile4[0] === staticPile[51])) {
+    if ((finalPile1[0] === staticCards[12] || finalPile1[0] === staticCards[25] || finalPile1[0] === staticCards[38] || finalPile1[0] === staticCards[51]) && (finalPile2[0] === staticCards[12] || finalPile2[0] === staticCards[25] || finalPile2[0] === staticCards[38] || finalPile2[0] === staticCards[51]) && (finalPile3[0] === staticCards[12] || finalPile3[0] === staticCards[25] || finalPile3[0] === staticCards[38] || finalPile3[0] === staticCards[51]) && (finalPile4[0] === staticCards[12] || finalPile4[0] === staticCards[25] || finalPile4[0] === staticCards[38] || finalPile4[0] === staticCards[51])) {
         console.log("You win!");
     }
     else return;
@@ -327,19 +333,12 @@ function checkWin() {
 
 // save high scores?
 
-// render
-function render() {
-    checkWin();
-    renderImages()
-}
-
 function renderImages() {
     for (var i = 0; i < boardPile1.length; i++) {
         boardPile1[i]
     }
 
 }
-$("boardPile1").html("");
 
 function renderDeck() {
     if (deck.length > 0) {
@@ -348,12 +347,102 @@ function renderDeck() {
     else $(".deck").removeClass('back-red').html("reshuffle?")
 }
 
+//  render from last to first, if tr 1 is taken, go tr 2
+function renderPiles() {
+    if (boardPile1.length > 0); {
+        boardState1 = $('.boardPile1');
+        console.log(boardPile1)
+        for (var i = 0; i < boardState1.length; i++){
+            renderCard(boardState1[i], boardPile1[i])}
+            console.log(boardPile1[0])
+            }
+    if (boardPile2.length > 0); {
+        boardState2 = $('.boardPile2');
+        console.log(boardPile2)
+        for (var i = 0; i < boardState1.length; i++)
+            if (boardPile2[boardPile2.length-1] !== undefined) {
+                renderCard(boardState2[i], boardPile2[i])
+                console.log(boardPile2[0])                
+            }}                                   
+    if (boardPile3.length > 0); {
+        boardState3 = $('.boardPile3');
+        console.log(boardPile3)
+        for (var i = 0; i < boardState3.length; i++)
+            if (boardPile3[boardPile3.length-1] !== undefined) {
+                renderCard(boardState3[i], boardPile3[i])
+                console.log(boardPile3[0])                
+                
+            }}
+    if (boardPile4.length > 0); {
+        boardState4 = $('.boardPile4');
+        console.log(boardPile4)
+        for (var i = 0; i < boardState1.length; i++)
+            if (boardPile4[boardPile4.length-1] !== undefined) {
+                renderCard(boardState4[i], boardPile4[i])
+                console.log(boardPile4[0])                
+                
+            }}
+    if (boardPile5.length > 0); {
+        boardState5 = $('.boardPile5');
+        console.log(boardPile5)        
+        for (var i = 0; i < boardState5.length; i++)
+            if (boardPile5[boardPile5.length-1] !== undefined) {
+                renderCard(boardState5[i], boardPile5[i])
+                console.log(boardPile5[0])                
+                
+            }}
+    if (boardPile6.length > 0); {
+        boardState6 = $('.boardPile6');
+        console.log(boardPile6)        
+        for (var i = 0; i < boardState6.length; i++)
+            if (boardPile6[boardPile6.length-1] !== undefined) {
+                renderCard(boardState6[i], boardPile6[i])
+                console.log(boardPile6[0])                
+                
+            }}
+    if (boardPile7.length > 0); {
+        boardState7 = $('.boardPile7');
+        console.log(boardPile7)
+        for (var i = 0; i < boardState7.length; i++)
+            if (boardPile7[boardPile7.length-1] !== undefined) {
+                renderCard(boardState7[i], boardPile7[i])
+                
+            }}
+            
+    };
+function flipFirstCard() {
+    if (deckPile.length > 0) {
+        $('deckPile').addClass('faceUp')}
+    else {$('deckPile').removeClass('faceUp')}
+    if (boardPile1.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')};
+    if (boardPile2.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')};
+    if (boardPile3.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+    if (boardPile4.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+    if (boardPile5.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+    if (boardPile6.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')}
+    if (boardPile7.length > 0); {
+        $(boardState1[boardPile1.length-1]).addClass('faceUp')}};
 
+
+// function renderboardPile7() {
+// var sevenUp = 0;
+// sevenUp = $(".boardPile7.faceup")
+// console.log(sevenUp);
+// for (var i = 0; i < sevenUp.length; i++)
+// renderCard(boardPile7, boardPile7[i])
+// }
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
 //feedinstaticcards[i]
 function renderCard(pile, num) {
+// if ($(pile).css({}).includes('faceUp') === true)
     switch(num) {
     case 0: $(pile).addClass('hA');
         break;
@@ -458,15 +547,22 @@ function renderCard(pile, num) {
     case 50: $(pile).addClass('cQ');
         break;
     case 51: $(pile).addClass('cK');
-        break;
-}}
+        break;}
+// else {$(pile).addClass('back-red')}
+if (num === undefined) {
+    $(pile).addClass('empty');
+}
+else {$(pile).removeClass('empty')}
+}
 
+// render
 function render() {
+    checkWin();
+    renderPiles();    
+    flipFirstCard();    
+    renderImages();
     renderDeck();
 }
 
 init();
-renderCard(".boardPile1", boardPile1[0]);
-console.log(boardPile1[0]);
-
 })

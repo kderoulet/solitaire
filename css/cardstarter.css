@@ -2,13 +2,17 @@
 @charset "UTF-8";
 
 body {
-  background-color: green
+  background-color: darkgreen
+}
+
+.empty {
+  opacity: 0;
 }
 
 .card {
   box-sizing: border-box;
   display: inline-block;
-  margin: 5px 5px 50px 5px;
+  margin: 5px 5px -70px 5px;
   cursor: pointer;
   /* Set the card's dimensions, and size it relative to
      it's font size. */
