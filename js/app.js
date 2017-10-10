@@ -1,5 +1,6 @@
 $(function() {
 
+    // all of the vars
 var staticCards = [];
 var deck = [];
 var tempDeck = [];
@@ -25,6 +26,11 @@ var boardState4 = [];
 var boardState5 = [];
 var boardState6 = [];
 var boardState7 = [];
+var finalState1 = [];
+var finalState2 = [];
+var finalState3 = [];
+var finalState4 = [];
+var deckPileState = [];
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -32,7 +38,7 @@ var boardState7 = [];
 //set up the board
 function init() {
     staticCards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12, 13, 14, 15, 16, 17 , 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
-    deck = staticCards;
+    deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12, 13, 14, 15, 16, 17 , 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51];
     deck = makeRandom(deck);
     makePile(boardPile1, 1);
     makePile(boardPile2, 2);
@@ -43,6 +49,35 @@ function init() {
     makePile(boardPile7, 7);
     render();
 }
+//permanent event listeners
+$('.deck').on('click', function(evt) {
+    if (deck.length > 0) {
+        deckPile.unshift(deck.shift())
+        render();
+    }
+    else reloadDeck();
+})
+
+$('.finalPile1, .finalPile2, .finalPile3, .finalPile4').on('click', function(evt) {
+    if (firstPile.length === 1) {
+        if ($(this).hasClass('finalPile1')) {
+            console.log('finalPile1')
+            checkFinalMove(firstPile, finalPile1);
+            }
+        else if ($(this).hasClass('finalPile2')) {
+            console.log('finalPile2')
+            checkFinalMove(firstPile, finalPile2);
+            }
+        else if ($(this).hasClass('finalPile3')) {
+            checkFinalMove(firstPile, finalPile3);
+            }
+        else if ($(this).hasClass('finalPile4')) {
+            checkFinalMove(firstPile, finalPile4);
+            }
+        else console.log('birds');        
+    }
+    else console.log('wahhh firstPile: ' + firstpile)
+    })
 
 //deck randomizer
 function makeRandom(arr) {
@@ -61,238 +96,141 @@ function makePile(pile, num) {
     pile.unshift(deck.shift());
 }
 
-// moving cards click events
-// document.querySelector(".boardPile").children.addEventListener("click", handleClick);
-// document.querySelectorAll(".deck").addEventListener("click", handleClick);
-// document.querySelectorAll(".deckPile").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile1").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile2").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile3").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile4").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile5").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile6").addEventListener("click", handleClick);
-// document.querySelectorAll(".boardPile7").addEventListener("click", handleClick);
-
-boardPile1Group = document.querySelectorAll(".boardPile1");
-boardPile1Group.forEach(function() {
-    this.addEventListener("click", handleClick);
-})
-
-
-
-function handleClick(evt) {
+// click event for faceUp cards
+function addFaceUpClick() {
+$('.faceUp').on('click', function(evt) {
     if (firstPile.length === 0) {
-        switch (evt.target.class) {
-            case "deck":
-                if (deck.length === 0) {
-                    reshuffleDeck();
-                }
-                else {deckPile.unshift(deck.shift());
-                console.log(deck)}               
-            break;
-            case "deckPile":
-            // firstPile = deckPile.substr(0, x) where x is location of clicked target
-                firstPile = deckPile;
-                console.log(firstPile);
-                break;
-            case "boardPile1":
-                firstPile = boardPile1;
-                console.log(firstPile);
-                break;
-            case "boardPile2":
-                firstPile = boardPile2;
-                console.log(firstPile)                                
-                break;
-            case "boardPile3":
-                firstPile = boardPile3;
-                console.log(firstPile)                                                
-                break;
-            case "boardPile4":
-                firstPile = boardPile4;
-                console.log(firstPile)                                                
-                break;
-            case "boardPile5":
-                firstPile = boardPile5;
-                console.log(firstPile)                                                
-                break;
-            case "boardPile6":
-                firstPile = boardPile6;
-                console.log(firstPile)                                                
-                break;
-            case "boardPile7":
-                firstPile = boardPile7;
-                console.log(firstPile)                                                
-                break;
-            case "finalPile1":
-                firstPile = boardPile1;
-                break;
-            case "finalPile2":
-                firstPile = boardPile2;
-                break;
-            case "finalPile3":
-                firstPile = boardPile3;
-                break;
-            case "finalPile4":
-                firstPile = boardPile4;
-                break;
-    }}
-    else {
-        switch (evt.target.class) {
-            case "deck":
-                illegal();
-                break;
-            case "deckPile":
-                illegal();
-                break;
-            case "boardPile1":
-                checkBoardMove(firstPile, boardPile1)
-                break;
-            case "boardPile2":
-                checkBoardMove(firstPile, boardPile2)
-                break;
-            case "boardPile3":
-                checkBoardMove(firstPile, boardPile3)
-                break;
-            case "boardPile4":
-                checkBoardMove(firstPile, boardPile4)
-                break;
-            case "boardPile5":
-                checkBoardMove(firstPile, boardPile5)
-                break;
-            case "boardPile6":
-                checkBoardMove(firstPile, boardPile6)
-                break;
-            case "boardPile7":
-                checkBoardMove(firstPile, boardPile7)
-                break;
-            case "finalPile1":
-                checkFinalMove(firstPile, finalPile1)
-                break;
-            case "finalPile2":
-                checkFinalMove(firstPile, finalPile2)                
-                break;
-            case "finalPile3":
-                checkFinalMove(firstPile, finalPile3)                
-                break;
-            case "finalPile4":
-                checkFinalMove(firstPile, finalPile4)                
-                break;
-    }
-}}
-
-
-
-// legal moves
-
-function checkBoardMove(firstPile, secondPile) {
-    var firstNumber = firstPile[firstPile.length-1];
-    var secondNumber = secondPile[0];
-    if (secondPile.length === 0) {
-        legal(firstPile, secondPile);
-    }
-    else if (staticCards[firstNumber] === 12 || staticCards[firstNumber] === 25 || staticCards[firstNumber] === 38 || staticCards[firstNumber] === 51 ) {
-        illegal();
-    }
-    else switch (staticCards[firstNumber-1]) {
-        case staticCards[firstNumber-1] < 13:
-            if (staticCards[secondNumber] === staticCards[firstNumber] + 26 || staticCards[secondNumber] === staticCards[firstNumber] + 39) {
-                legal();
-            }
-            else illegal();
-            break;
-        case staticCards[firstNumber-1] < 26:
-            if (staticCards[secondNumber] === staticCards[firstNumber] + 13 || staticCards[secondNumber] === staticCards[firstNumber] + 26) {
-            legal();
+        if ($(this).hasClass('deckPile')) {
+            firstPile.push(deckPile[0])
         }
-            else illegal();
-            break;
-        case staticCards[firstNumber-1] < 39:
-            if (staticCards[secondNumber] === staticCards[firstNumber] -13 || staticCards[secondNumber] === staticCards[firstNumber] - 26) {
-            legal();
         }
-            else illegal();
-            break;
-        default:
-            if (staticCards[secondNumber] === staticCards[firstNumber] -26 || staticCards[secondNumber] === staticCards[firstNumber] - 39) {
-            legal();
+    if ($(this).hasClass('boardPile1')) {
+            checkBoardMove(firstPile, boardPile1);
         }
-            else illegal();
-            break;
     }
-}
+)}
+
+
+
+// legal moves firstPile.length-1
+// function checkBoardMove(firstPile, secondPile) {
+//     var firstNumber = firstPile[0];
+//     var secondNumber = secondPile[0];
+//     if (secondPile.length === 0) {
+//         legal(firstPile, secondPile);
+//     }
+//     else if (staticCards[firstNumber] === 12 || staticCards[firstNumber] === 25 || staticCards[firstNumber] === 38 || staticCards[firstNumber] === 51 ) {
+//         illegal();
+//     }
+//     else switch (staticCards[firstNumber-1]) {
+//         case staticCards[firstNumber-1] < 13:
+//             if (staticCards[secondNumber] === staticCards[firstNumber] + 26 || staticCards[secondNumber] === staticCards[firstNumber] + 39) {
+//                 legal(firstPile, secondPile);
+//             }
+//             else illegal();
+//             break;
+//         case staticCards[firstNumber-1] < 26:
+//             if (staticCards[secondNumber] === staticCards[firstNumber] + 13 || staticCards[secondNumber] === staticCards[firstNumber] + 26) {
+//             legal(firstPile, secondPile);
+//         }
+//             else illegal();
+//             break;
+//         case staticCards[firstNumber-1] < 39:
+//             if (staticCards[secondNumber] === staticCards[firstNumber] -13 || staticCards[secondNumber] === staticCards[firstNumber] - 26) {
+//             legal(firstPile, secondPile);
+//         }
+//             else illegal();
+//             break;
+//         default:
+//             if (staticCards[secondNumber] === staticCards[firstNumber] -26 || staticCards[secondNumber] === staticCards[firstNumber] - 39) {
+//             legal(firstPile, secondPile);
+//         }
+//             else illegal();
+            
+//     }
+// }
 
 function checkFinalMove(firstPile, secondPile) {
-    var firstNumber = firstPile[firstPile.length-1];
-    var secondNumber = secondPile[0];
-    if (secondPile.lenth === 0) {
-        legal();
+    if (firstPile[0] === staticCards[0] || firstPile[0] === staticCards[13] || firstPile[0] === staticCards[26] || firstPile[0] === staticCards[39]) {
+        if (secondPile.length === 0) {
+        console.log('no it must be here')
+        console.log('first pile: ' + firstPile + ' second pile: ' + secondPile)
+        legal(firstPile, secondPile);
     }
-    else if (firstNumber === staticCards[0] || firstNumber === staticCards[13] || firstNumber === staticCards[26] || firstNumber === staticCards[39])
-        illegal();
+        else illegal();
+    }
 
-    else if (staticCards[firstNumber] === staticCards[secondNumber+1]) {
-        legal();
+    else if (firstPile[0] === secondPile[0] + 1) {
+        console.log('here it is')
+        legal(firstPile, secondPile);
     }
     else illegal()}
     
 function legal(firstPile, secondPile) {
-    for (var i = firstPile.length; i > 0; i--)
-    {secondPile.unshift(firstPile[i-1]);}
-    secondPile.unshift("placeholder");
-    switch (firstPile) {
-    // deckPile.substr(0, firstPile.length)
-        case deckPile.substr(0, firstPile.length): 
+    for (var i = firstPile.length-1; i >= 0; i--) {
+        secondPile.unshift(firstPile[i])};
+    secondPile.unshift('placeholder');
+    switch (firstPile[0]) {
+        case deckPile[0]: 
             for (var i = firstPile.length; i > 0; i--) 
-                {deckPile.shift()}
+                {deckPile.shift();
+            }
+
         break;
-        case boardPile1.substr(0, firstPile.length): 
+        case boardPile1[0]: 
             for (var i = firstPile.length; i > 0; i--) 
                 {boardPile1.shift()}
         break;
-        case boardPile2.substr(0, firstPile.length): 
+        case boardPile2[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {boardPile2.shift()}
         break;
-        case boardPile3.substr(0, firstPile.length): 
+        case boardPile3[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {boardPile3.shift()}
         break;
-        case boardPile4.substr(0, firstPile.length): 
+        case boardPile4[0]: 
             for (var i = firstPile.length; i > 0; i--) {
                 boardPile4.shift()}
         break;
-        case boardPile5.substr(0, firstPile.length): 
+        case boardPile5[0]: 
             for (var i = firstPile.length; i > 0; i--) {
                 boardPile5.shift()}
         break;
-        case boardPile6.substr(0, firstPile.length): 
+        case boardPile6[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {boardPile6.shift()}
         break;
-        case boardPile7.substr(0, firstPile.length): 
+        case boardPile7[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {boardPile7.shift()}
         break;
-        case finalPile1.substr(0, firstPile.length): 
+        case finalPile1[0]: 
             for (var i = firstPile.length; i > 0; i--) {
                 finalPile1.shift()}
         break;
-        case finalPile2.substr(0, firstPile.length): 
+        case finalPile2[0]: 
             for (var i = firstPile.length; i > 0; i--) {
                 finalPile2.shift()}
         break;
-        case finalPile3.substr(0, firstPile.length): 
+        case finalPile3[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {finalPile3.shift()}
         break;
-        case finalPile4.substr(0, firstPile.length): 
+        case finalPile4[0]: 
             for (var i = firstPile.length; i > 0; i--)
                 {finalPile4.shift()}
         break;
     }
     firstPile = [];
     secondPile.shift();
+    console.log('then it resets...')
+    console.log(firstPile)
+    console.log(secondPile)
+    render();
+    
 }
+
 function illegal() {
     firstPile = [];
     console.log("Not a legal move");
@@ -305,20 +243,25 @@ function illegal() {
     // deck pile to board pile
 
 
-// reshuffle deck - add click event to empty deck?
-function reshuffleDeck() {
+function reloadDeck() {
     if (deck.length === 0) {
-    deck = makeRandom(pile);
-    pile = [];
-}
+        for (var i = deckPile.length; i > 0; i--) {
+            deck.unshift(deckPile.shift());
+        }}
     else return;
-// remove the click event
 }
 
 // win condition
 function checkWin() {
-    if ((finalPile1[0] === staticCards[12] || finalPile1[0] === staticCards[25] || finalPile1[0] === staticCards[38] || finalPile1[0] === staticCards[51]) && (finalPile2[0] === staticCards[12] || finalPile2[0] === staticCards[25] || finalPile2[0] === staticCards[38] || finalPile2[0] === staticCards[51]) && (finalPile3[0] === staticCards[12] || finalPile3[0] === staticCards[25] || finalPile3[0] === staticCards[38] || finalPile3[0] === staticCards[51]) && (finalPile4[0] === staticCards[12] || finalPile4[0] === staticCards[25] || finalPile4[0] === staticCards[38] || finalPile4[0] === staticCards[51])) {
-        console.log("You win!");
+    if (finalPile1[0] === staticCards[12] || finalPile1[0] === staticCards[25] || finalPile1[0] === staticCards[38] || finalPile1[0] === staticCards[51]) {
+        if (finalPile2[0] === staticCards[12] || finalPile2[0] === staticCards[25] || finalPile2[0] === staticCards[38] || finalPile2[0] === staticCards[51]) {
+            if (finalPile3[0] === staticCards[12] || finalPile3[0] === staticCards[25] || finalPile3[0] === staticCards[38] || finalPile3[0] === staticCards[51]) {
+                if (finalPile4[0] === staticCards[12] || finalPile4[0] === staticCards[25] || finalPile4[0] === staticCards[38] || finalPile4[0] === staticCards[51]) {
+                    console.log(finalPile1)
+                    console.log('You win!');
+                }
+            }
+        }
     }
     else return;
 }
@@ -332,83 +275,88 @@ function checkWin() {
 // score?
 
 // save high scores?
-
-function renderImages() {
-    for (var i = 0; i < boardPile1.length; i++) {
-        boardPile1[i]
-    }
-
-}
-
-function renderDeck() {
+    
+function renderTop() {
     if (deck.length > 0) {
         $('.deck').addClass('card').addClass('back-red');
     }
-    else $(".deck").removeClass('back-red').html("reshuffle?")
+    else $(".deck").removeClass('back-red').html("reshuffle?");
+    /// add image for reload??
+    if (deckPile.length > 0) {
+        $('.deckPile').removeClass().addClass('deckPile').addClass('card').addClass('faceUp')
+        deckPileState = $('deckPile')
+        renderCard('.deckPile', deckPile[0]);
+    }
+    else $('.deckPile').removeClass().addClass('deckPile').addClass('card');
+
+    if (finalPile1.length > 0) {
+        finalState1 = $('.finalPile1');
+        renderCard(finalState1[0], finalPile1[0])
+    }
+
+    if (finalPile2.length > 0) {
+        finalState2 = $('.finalPile2');
+        renderCard(finalState2[0], finalPile2[0])
+    }
+
+    if (finalPile3.length > 0) {
+        finalState3 = $('.finalPile3');
+        renderCard(finalState3[0], finalPile3[0])
+    }
+
+    if (finalPile4.length > 0) {
+        finalState4 = $('.finalPile4');
+        renderCard(finalState4[0], finalPile4[0])
+    }
 }
 
 //  render from last to first, if tr 1 is taken, go tr 2
 function renderPiles() {
-    if (boardPile1.length > 0); {
+    if (boardPile1.length > 0) {
         boardState1 = $('.boardPile1');
-        console.log(boardPile1)
         for (var i = 0; i < boardState1.length; i++){
             renderCard(boardState1[i], boardPile1[i])}
-            console.log(boardPile1[0])
             }
-    if (boardPile2.length > 0); {
+    if (boardPile2.length > 0) {
         boardState2 = $('.boardPile2');
-        console.log(boardPile2)
         for (var i = 0; i < boardState1.length; i++)
             if (boardPile2[boardPile2.length-1] !== undefined) {
                 renderCard(boardState2[i], boardPile2[i])
-                console.log(boardPile2[0])                
             }}                                   
-    if (boardPile3.length > 0); {
+    if (boardPile3.length > 0) {
         boardState3 = $('.boardPile3');
-        console.log(boardPile3)
         for (var i = 0; i < boardState3.length; i++)
             if (boardPile3[boardPile3.length-1] !== undefined) {
                 renderCard(boardState3[i], boardPile3[i])
-                console.log(boardPile3[0])                
                 
             }}
-    if (boardPile4.length > 0); {
+    if (boardPile4.length > 0) {
         boardState4 = $('.boardPile4');
-        console.log(boardPile4)
         for (var i = 0; i < boardState1.length; i++)
             if (boardPile4[boardPile4.length-1] !== undefined) {
                 renderCard(boardState4[i], boardPile4[i])
-                console.log(boardPile4[0])                
                 
             }}
-    if (boardPile5.length > 0); {
+    if (boardPile5.length > 0) {
         boardState5 = $('.boardPile5');
-        console.log(boardPile5)        
         for (var i = 0; i < boardState5.length; i++)
             if (boardPile5[boardPile5.length-1] !== undefined) {
                 renderCard(boardState5[i], boardPile5[i])
-                console.log(boardPile5[0])                
                 
             }}
-    if (boardPile6.length > 0); {
+    if (boardPile6.length > 0) {
         boardState6 = $('.boardPile6');
-        console.log(boardPile6)        
         for (var i = 0; i < boardState6.length; i++)
             if (boardPile6[boardPile6.length-1] !== undefined) {
                 renderCard(boardState6[i], boardPile6[i])
-                console.log(boardPile6[0])                
                 
             }}
-    if (boardPile7.length > 0); {
+    if (boardPile7.length > 0) {
         boardState7 = $('.boardPile7');
-        console.log(boardPile7)
         for (var i = 0; i < boardState7.length; i++)
             if (boardPile7[boardPile7.length-1] !== undefined) {
-                renderCard(boardState7[i], boardPile7[i])
-                
+                renderCard(boardState7[i], boardPile7[i]) 
             }}
-            
     };
 function flipFirstCard() {
     if (deckPile.length > 0) {
@@ -431,32 +379,25 @@ function flipFirstCard() {
 
 function renderFaceDowns() {  
 for (var i = 0; i < boardPile1.length; i++)
-    if ($(boardState1[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState1[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState1[i]).addClass('back-red')}
 for (var i = 0; i < boardPile2.length; i++)
-    if ($(boardState2[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState2[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState2[i]).addClass('back-red')}
 for (var i = 0; i < boardPile3.length; i++)
-    if ($(boardState3[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState3[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState3[i]).addClass('back-red')}
 for (var i = 0; i < boardPile4.length; i++)
-    if ($(boardState4[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState4[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState4[i]).addClass('back-red')}
 for (var i = 0; i < boardPile5.length; i++)
-    if ($(boardState5[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState5[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState5[i]).addClass('back-red')}
 for (var i = 0; i < boardPile6.length; i++)
-    if ($(boardState6[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState6[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState6[i]).addClass('back-red')}
 for (var i = 0; i < boardPile7.length; i++)
-    if ($(boardState7[i]).hasClass('faceUp' || 'empty' || 'back-red'))
-        {console.log("Yay!")}
+    if ($(boardState7[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
     else {$(boardState7[i]).addClass('back-red')}
 }
 
@@ -464,7 +405,6 @@ for (var i = 0; i < boardPile7.length; i++)
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
 //feedinstaticcards[i]
 function renderCard(pile, num) {
-// if ($(pile).css({}).includes('faceUp') === true)
     switch(num) {
     case 0: $(pile).addClass('hA');
         break;
@@ -570,7 +510,6 @@ function renderCard(pile, num) {
         break;
     case 51: $(pile).addClass('cK');
         break;}
-// else {$(pile).addClass('back-red')}
 if (num === undefined) {
     $(pile).addClass('empty');
 }
@@ -582,9 +521,9 @@ function render() {
     checkWin();
     renderPiles();    
     flipFirstCard();    
-    renderImages();
-    renderDeck();
+    renderTop();
     renderFaceDowns();
+    addFaceUpClick();
 }
 
 init();
