@@ -1,0 +1,9 @@
+body {
+    background-color: darkgreen;
+    min-width: 540px;
+  }
+  
+  .empty {
+    opacity: 0;
+  }
+  

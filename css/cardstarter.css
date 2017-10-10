@@ -1,15 +1,6 @@
 
 @charset "UTF-8";
 
-body {
-  background-color: darkgreen;
-  min-width: 540px;
-}
-
-.empty {
-  opacity: 0;
-}
-
 .card {
   box-sizing: border-box;
   display: inline-block;
@@ -329,11 +320,6 @@ body {
 
 .card.back-red {
   background-image: url("../images/backs/red.svg"); }
-
-.empty {
-    opacity: 0;
-    cursor: pointer;
-  }
 
 /* Re-orients the cards for different directions. While
    they are symmetric, it's still important to orient
