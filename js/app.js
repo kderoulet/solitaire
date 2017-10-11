@@ -37,8 +37,8 @@ var deckPileState = [];
 
 //set up the board
 function init() {
-    staticCards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12, 13, 14, 15, 16, 17 , 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
-    deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12, 13, 14, 15, 16, 17 , 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51];
+    staticCards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+    deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51];
     deck = makeRandom(deck);
     makePile(boardPile1, 1);
     makePile(boardPile2, 2);
@@ -606,7 +606,7 @@ $('.empty').on('click', function(evt) {
         else if ($(this).hasClass('boardPile4')) {
             firstPile.unshift(boardPile4[0])}
         else if ($(this).hasClass('boardPile5')) {
-            firstPile.unshift(boardPile5[0]);}
+            firstPile.unshift(boardPile5[0])}
         else if ($(this).hasClass('boardPile6')) {
             firstPile.unshift(boardPile6[0])}
         else if ($(this).hasClass('boardPile7')) {
@@ -766,8 +766,7 @@ function reloadDeck() {
     if (deck.length === 0) {
         for (var i = deckPile.length; i > 0; i--) {
             deck.unshift(deckPile.shift());
-        }}
-    else return;
+        }};
 }
 
 // win condition
@@ -843,7 +842,7 @@ function renderPiles() {
         boardState1 = $('.boardPile1');
         var difference = (1 + (boardState1.length - boardPile1.length));
         for (var i = 0; i < boardState1.length; i++)
-            if (boardPile2[boardPile2.length-1] !== undefined) {            
+            if (boardPile1[boardPile1.length-1] !== undefined) {            
                 if (i >= boardPile1.length) {
                     renderCard(boardState1[i], boardPile1[i])
                 }
@@ -903,14 +902,14 @@ function renderPiles() {
         boardState5 = $('.boardPile5');
         var difference = (1 + (boardState5.length - boardPile5.length));
         for (var i = 0; i < boardState5.length; i++)
-            if (boardPile7[boardPile5.length-1] !== undefined) {
+            if (boardPile5[boardPile5.length-1] !== undefined) {
                 if (i >= boardPile5.length) {
                     renderCard(boardState5[i], boardPile5[i])
                 }
                 else {renderCard(boardState5[boardState5.length - difference - i], boardPile5[i])
             }}}
     else {$('.boardPile5').removeClass().addClass('boardPile5').addClass('card').addClass('faceUp');
-        boardState1 = $('.boardPile5');
+        boardState5 = $('.boardPile5');
         for (var i = 1; i < boardState5.length; i++) {
             renderCard(boardState5[i], boardPile5[i])
         }}
