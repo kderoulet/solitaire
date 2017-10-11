@@ -52,7 +52,7 @@ function init() {
     makePile(boardPile5, 5);
     makePile(boardPile6, 6);
     makePile(boardPile7, 7);
-    $('winMessage').html('');
+    $('.winMessage').text('');
     render();
 }
 function initializeVariables() {
@@ -109,6 +109,7 @@ $('.deckPile').on('click', function(evt) {
     if (deckPile.length > 0) {
         firstPile.length = 0;
         firstPile.unshift(deckPile[0]);
+        $(this).css('opacity', '.8')
     }
 })
 
@@ -126,7 +127,7 @@ $('.finalPile1, .finalPile2, .finalPile3, .finalPile4').on('click', function(evt
         else if ($(this).hasClass('finalPile4')) {
             checkFinalMove(firstPile, finalPile4);
             }
-        else console.log('birds');        
+        else;        
     }
     resetFirstPile();
     })
@@ -160,458 +161,460 @@ $('.faceUp').on('click', function(evt) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile1.length-1 ; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
+                    $(this).css('opacity', '.8')
             }
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile1.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
-                for (var i = boardPile1.length-3; i >= 0; i--)
+                for (var i = boardPile1.length-3; i >= 0; i--) 
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile1.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile1.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile1.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile1.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile1.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile1.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile1.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile1.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile1.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile1.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            }}
+            $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile2')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile2.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile2.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile2.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile2.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile2.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile2.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile2.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile2.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile2.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile2.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile2.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile2.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile2.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile2.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            }}
+            $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile3')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile3.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile3.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile3.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile3.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile3.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile3.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile3.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile3.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile3.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile3.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile3.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile3.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile3.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile3.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile3.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            }
+            $(this).css('opacity', '.8')}
             }
         if ($(this).hasClass('boardPile4')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile4.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile4.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile4.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile4.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile4.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile4.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile4.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile4.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile4.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile4.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile4.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile4.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile4.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile4.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile4.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile4.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            } }
+            $(this).css('opacity', '.8')} }
         if ($(this).hasClass('boardPile5')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile5.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile5.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile5.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile5.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile5.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile5.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile5.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile5.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile5.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile5.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile5.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile5.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile5.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile5.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile5.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile5.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row17')) {
                 for (var i = boardPile5.length-17; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            }}
+            $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile6')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile6.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile6.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile6.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile6.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile6.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile6.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile6.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile6.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile6.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile6.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile6.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile6.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile6.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile6.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile6.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile6.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row17')) {
                 for (var i = boardPile6.length-17; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row18')) {
                 for (var i = boardPile6.length-18; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            }}
+            $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile7')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile7.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile7.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile7.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile7.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile7.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile7.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile7.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile7.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile7.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile7.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile7.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile7.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile7.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile7.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile7.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile7.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row17')) {
                 for (var i = boardPile7.length-17; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row18')) {
                 for (var i = boardPile7.length-18; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }
+            $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row19')) {
                 for (var i = boardPile7.length-19; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            }}
+            $(this).css('opacity', '.8')}}
+    
 }
 else { 
     if ($(this).hasClass('boardPile1')) {
@@ -634,7 +637,10 @@ else {
     }
     else if ($(this).hasClass('boardPile7')) {
         checkBoardMove(firstPile, boardPile7)
-    }}})}
+    }}
+
+    
+})}
 
     
 
@@ -644,19 +650,29 @@ $('.empty').off();
 $('.empty').on('click', function(evt) {
     if (firstPile.length === 0) {
         if ($(this).hasClass('boardPile1')) {
-            firstPile.unshift(boardPile1[0])}
+            firstPile.unshift(boardPile1[0])
+            $(boardState1[boardPile1.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile2')) {
-            firstPile.unshift(boardPile2[0])}
+            firstPile.unshift(boardPile2[0])
+            $(boardState2[boardPile2.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile3')) {
-            firstPile.unshift(boardPile3[0])}
+            firstPile.unshift(boardPile3[0])
+            $(boardState3[boardPile3.length-1]).css('opacity', '.8')}
         else if ($(this).hasClass('boardPile4')) {
-            firstPile.unshift(boardPile4[0])}
+            firstPile.unshift(boardPile4[0])
+            $(boardState4[boardPile4.length-1]).css('opacity', '.8')}
         else if ($(this).hasClass('boardPile5')) {
-            firstPile.unshift(boardPile5[0])}
+            firstPile.unshift(boardPile5[0])
+            $(boardState5[boardPile5.length-1]).css('opacity', '.8')}
         else if ($(this).hasClass('boardPile6')) {
-            firstPile.unshift(boardPile6[0])}
+            firstPile.unshift(boardPile6[0])
+            $(boardState6[boardPile6.length-1]).css('opacity', '.8')}
         else if ($(this).hasClass('boardPile7')) {
-            firstPile.unshift(boardPile7[0])}}
+            firstPile.unshift(boardPile7[0])
+            $(boardState7[boardPile7.length-1]).css('opacity', '.8')}
+        }
     else {
         if ($(this).hasClass('boardPile1')) {
             checkBoardMove(firstPile, boardPile1)
@@ -678,8 +694,14 @@ $('.empty').on('click', function(evt) {
         }
         else if ($(this).hasClass('boardPile7')) {
             checkBoardMove(firstPile, boardPile7)
-    }}})}
+    }}
+})}
 
+function selectPile() {
+    if ($(boardPile1).inArray) {
+        $('.boardPile1').css('opacity', '.8');
+    }
+}
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -797,6 +819,7 @@ function legal(firstPile, secondPile) {
 
 function illegal() {
     resetFirstPile();
+    render();
     }
     
 
@@ -819,7 +842,7 @@ function checkWin() {
         if (finalPile2[0] === staticCards[12] || finalPile2[0] === staticCards[25] || finalPile2[0] === staticCards[38] || finalPile2[0] === staticCards[51]) {
             if (finalPile3[0] === staticCards[12] || finalPile3[0] === staticCards[25] || finalPile3[0] === staticCards[38] || finalPile3[0] === staticCards[51]) {
                 if (finalPile4[0] === staticCards[12] || finalPile4[0] === staticCards[25] || finalPile4[0] === staticCards[38] || finalPile4[0] === staticCards[51]) {
-                    $('.winMessage').html('You win!');
+                    $('.winMessage').text('You win!');
                     
                 }
             }
@@ -828,22 +851,12 @@ function checkWin() {
     else return;
 }
 
-// resest button
-
-// move counter
-
-// timer?
-
-// score?
-
-// save high scores?
-
 // renders the top table and cards
 function renderTop() {
     if (deck.length > 0) {
         $('.deck').addClass('card').addClass('back-red');
     }
-    else $(".deck").removeClass('back-red').html("reshuffle?");
+    else $(".deck").removeClass('back-red');
     if (deckPile.length > 0) {
         $('.deckPile').removeClass().addClass('deckPile').addClass('card')
         deckPileState = $('deckPile')
@@ -1174,11 +1187,17 @@ function resetFirstPile() {
 
 function updateScore() {
     score = (finalPile1.length + finalPile2.length + finalPile3.length + finalPile4.length) * 25;
-    $('.score').html('Score: ' + score)
+    $('.score').text('Score: ' + score)
 }
 
 function updateMoves() {
-    $('.moveCounter').html('Moves: ' + moves)
+    $('.moveCounter').text('Moves: ' + moves)
+}
+
+function makeFaceUpSolid() {
+    $('.faceUp').not('.empty').css('opacity', '.99');
+    $('.empty').css('opacity', '0');
+    $('.deckPile').css('opacity', '1')
 }
 
 // render
@@ -1193,6 +1212,7 @@ function render() {
     addEmptyClick();    
     updateScore();
     updateMoves();
+    makeFaceUpSolid();
 }
 
 init();

@@ -33,6 +33,7 @@ $(function() {
     var deckPileState = [];
     var moves;
     var score;
+    var rows;
     
     
     // Ace: 0, king: 12 
@@ -118,7 +119,7 @@ $(function() {
             else if ($(this).hasClass('finalPile4')) {
                 checkFinalMove(firstPile, finalPile4);
                 }
-            else console.log('birds');        
+            else;        
         }
         resetFirstPile();
         })
@@ -141,26 +142,50 @@ $(function() {
     }
     
     function newAddFaceUpClick() {
-        addFaceUpClick(boardPile1, 'boardPile1', 'row1', 1)
+        rows = $('.faceUp');        
+        $(rows).off();        
+        newAddFaceUpClickStep(boardPile1, 'boardPile1');
+        newAddFaceUpClickStep(boardPile2, 'boardPile2');
+        newAddFaceUpClickStep(boardPile3, 'boardPile3');
+        newAddFaceUpClickStep(boardPile4, 'boardPile4');
+        newAddFaceUpClickStep(boardPile5, 'boardPile5');
+        newAddFaceUpClickStep(boardPile6, 'boardPile6');
+        newAddFaceUpClickStep(boardPile7, 'boardPile7');        
+    }
+
+    function newAddFaceUpClickStep(pile, string) {
+        addFaceUpClick(pile, string, 'row1', 1)
+        addFaceUpClick(pile, string, 'row2', 2)
+        addFaceUpClick(pile, string, 'row3', 3)
+        addFaceUpClick(pile, string, 'row4', 4)
+        addFaceUpClick(pile, string, 'row5', 5)
+        addFaceUpClick(pile, string, 'row6', 6)
+        addFaceUpClick(pile, string, 'row7', 7)
+        addFaceUpClick(pile, string, 'row8', 8)
+        addFaceUpClick(pile, string, 'row9', 9)
+        addFaceUpClick(pile, string, 'row10', 10)
+        addFaceUpClick(pile, string, 'row11', 11)
+        addFaceUpClick(pile, string, 'row12', 12)
+        addFaceUpClick(pile, string, 'row13', 13)
+        addFaceUpClick(pile, string, 'row14', 14)
+        addFaceUpClick(pile, string, 'row15', 15)
+        addFaceUpClick(pile, string, 'row16', 16)
+        addFaceUpClick(pile, string, 'row17', 17)
+        addFaceUpClick(pile, string, 'row18', 18)
+        addFaceUpClick(pile, string, 'row19', 19)
     }
     
     function addFaceUpClick(pile, string, row, num) {
-    // var rows = $('.row1 .row2 .row3 .row4 .row5 .row6 .row7 .row8 .row9 .row10 .row11 .row12 .row13 .row14 .row15 .row16 .row17 .row18 .row19');
-    var rows = $('.faceUp');
-    console.log(rows[87]);
-    for (var i = 0; i < rows.length; i++) {
-        $(rows[i]).off();
-        $(rows[i]).on('click', function(evt) {
-            if (firstPile.length === 0) {
-                if ($(this).hasClass(string)) {
-                    if ($(this.parent).hasClass(row)) {
-                        for (var j = pile.length-num; j >= 0; j--)
-                        firstPile.unshift(pile[j])
-                        console.log(firstPile)
+        $('td').filter(string).on('click', function(evt) {
+                if (firstPile.length === 0) {
+                    for (var i = pile.length-num; i >= 0; i--) {                                
+                        firstPile.unshift(pile[i])
+                        console.log(firstPile);
+                    }}
+                else { 
+                    checkBoardMove(firstPile, pile)
                     }
-            }
-        }})
-    }}
+                    })}
 
 
     // functionally identical to faceUpClick on [0]
