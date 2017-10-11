@@ -1,6 +1,19 @@
 body {
     background-color: darkgreen;
     min-width: 540px;
+    cursor: pointer;
+    color: white;
+    width: 90%;
+  }
+
+span {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+  .topPanel {
+    text-align: center;
+    padding: 10px;
   }
   
   .empty {
