@@ -60,6 +60,7 @@ $('.deck').on('click', function(evt) {
 
 $('.deckPile').on('click', function(evt) {
     if (deckPile.length > 0) {
+        firstPile.length = 0;
         firstPile.unshift(deckPile[0]);
     }
 })
@@ -105,6 +106,7 @@ function makePile(pile, num) {
 function addFaceUpClick() {
 $('.faceUp').off();
 $('.faceUp').on('click', function(evt) {
+    console.log('clicked');
     if (firstPile.length === 0) {
         if ($(this).hasClass('boardPile1')) {
             if ($(this).parent().hasClass('row1')) {
@@ -112,6 +114,7 @@ $('.faceUp').on('click', function(evt) {
                     firstPile.unshift(boardPile1[i])
             }
             else if ($(this).parent().hasClass('row2')) {
+                console.log('interesting')
                 for (var i = boardPile1.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
             }
@@ -563,7 +566,7 @@ $('.faceUp').on('click', function(evt) {
                     firstPile.unshift(boardPile7[i])
             }}
 }
-else if (firstPile.length > 0) { 
+else { 
     if ($(this).hasClass('boardPile1')) {
         checkBoardMove(firstPile, boardPile1)
         }
@@ -590,51 +593,46 @@ else if (firstPile.length > 0) {
 
 // functionally identical to faceUpClick on [0]
 function addEmptyClick() {
+$('.empty').off();
 $('.empty').on('click', function(evt) {
-        if (firstPile.length === 0) {console.log('cool')} })}
-    //         else if ($(this).hasClass('boardPile1')) {
-    //             fistPile.push(boardPile1[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile2')) {
-    //             firstPile.push(boardPile2[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile3')) {
-    //             firstPile.push(boardPile3[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile4')) {
-    //             firstPile.push(boardPile4[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile5')) {
-    //             firstPile.push(boardPile5[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile6')) {
-    //             firstPile.push(boardPile6[0])
-    //         }
-    //         else if ($(this).hasClass('boardPile7')) {
-    //             firstPile.push(boardPile7[0]) }}
-    //     else if ($(this).hasClass('boardPile1')) {
-    //             checkBoardMove(firstPile, boardPile1)
-    //         }
-    //     else if ($(this).hasClass('boardPile2')) {
-    //         checkBoardMove(firstPile, boardPile2) 
-    //     }
-    //     else if ($(this).hasClass('boardPile3')) {
-    //             checkBoardMove(firstPile, boardPile3)
-    //         }
-    //     else if ($(this).hasClass('boardPile4')) {
-    //         checkBoardMove(firstPile, boardPile4)
-    //     }
-    //     else if ($(this).hasClass('boardPile5')) {
-    //         checkBoardMove(firstPile, boardPile5)
-    //     }
-    //     else if ($(this).hasClass('boardPile6')) {
-    //         checkBoardMove(firstPile, boardPile6)
-    //     }
-    //     else if ($(this).hasClass('boardPile7')) {
-    //         checkBoardMove(firstPile, boardPile7)
-    //     }
-    //     }
-    // )}
+    console.log('clorked');
+    if (firstPile.length === 0) {
+        if ($(this).hasClass('boardPile1')) {
+            firstPile.unshift(boardPile1[0])}
+        else if ($(this).hasClass('boardPile2')) {
+            firstPile.unshift(boardPile2[0])}
+        else if ($(this).hasClass('boardPile3')) {
+            firstPile.unshift(boardPile3[0])}
+        else if ($(this).hasClass('boardPile4')) {
+            firstPile.unshift(boardPile4[0])}
+        else if ($(this).hasClass('boardPile5')) {
+            firstPile.unshift(boardPile5[0]);}
+        else if ($(this).hasClass('boardPile6')) {
+            firstPile.unshift(boardPile6[0])}
+        else if ($(this).hasClass('boardPile7')) {
+            firstPile.unshift(boardPile7[0])}}
+    else {
+        if ($(this).hasClass('boardPile1')) {
+            checkBoardMove(firstPile, boardPile1)
+            }
+        else if ($(this).hasClass('boardPile2')) {
+            checkBoardMove(firstPile, boardPile2) 
+        }
+        else if ($(this).hasClass('boardPile3')) {
+                checkBoardMove(firstPile, boardPile3)
+            }
+        else if ($(this).hasClass('boardPile4')) {
+            checkBoardMove(firstPile, boardPile4)
+        }
+        else if ($(this).hasClass('boardPile5')) {
+            checkBoardMove(firstPile, boardPile5)
+        }
+        else if ($(this).hasClass('boardPile6')) {
+            checkBoardMove(firstPile, boardPile6)
+        }
+        else if ($(this).hasClass('boardPile7')) {
+            checkBoardMove(firstPile, boardPile7)
+    }}})}
 
 
 // Ace: 0, king: 12 
@@ -692,7 +690,8 @@ function checkFinalMove(firstPile, secondPile) {
     
 function legal(firstPile, secondPile) {
     for (var i = firstPile.length-1; i >= 0; i--) {
-        secondPile.unshift(firstPile[i])};
+        secondPile.unshift(firstPile[i])
+    };
     secondPile.unshift('placeholder');
     switch (firstPile[0]) {
         case deckPile[0]: 
@@ -745,6 +744,7 @@ function legal(firstPile, secondPile) {
                 {finalPile4.shift()}
         break;
     }
+    resetFirstPile();
     secondPile.shift();
     render();
     
@@ -810,23 +810,31 @@ function renderTop() {
 
     if (finalPile1.length > 0) {
         finalState1 = $('.finalPile1');
+        removeExtraClasses('.finalPile1');
         renderCard(finalState1[0], finalPile1[0])
     }
 
     if (finalPile2.length > 0) {
         finalState2 = $('.finalPile2');
+        removeExtraClasses('.finalPile2');        
         renderCard(finalState2[0], finalPile2[0])
     }
 
     if (finalPile3.length > 0) {
         finalState3 = $('.finalPile3');
+        removeExtraClasses('.finalPile3');        
         renderCard(finalState3[0], finalPile3[0])
     }
 
     if (finalPile4.length > 0) {
         finalState4 = $('.finalPile4');
+        removeExtraClasses('.finalPile4');        
         renderCard(finalState4[0], finalPile4[0])
     }
+}
+
+function removeExtraClasses(pile) {
+    $(pile).removeClass('hA h01 h02 h03 h04 h05 h06 h07 h08 h09 h10 hJ hQ hK dA d01 d02 d03 d04 d05 d06 d07 d08 d09 d10 dJ dQ dK sA s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 sJ sQ sK cA c01 c02 c03 c04 c05 c06 c07 c08 c09 c10 cJ cQ cK faceUp');
 }
 
 //  render from last to first, if tr 1 is taken, go tr 2
@@ -841,7 +849,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState1[boardState1.length - difference - i], boardPile1[i])
             }}}
-    else {$('.boardPile1').removeClass().addClass('boardPile1').addClass('card');
+    else {$('.boardPile1').removeClass().addClass('boardPile1').addClass('card').addClass('faceUp');
         boardState1 = $('.boardPile1');
         for (var i = 1; i < boardState1.length; i++) {
             renderCard(boardState1[i], boardPile1[i])
@@ -856,7 +864,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState2[boardState2.length - difference - i], boardPile2[i])
             }}}
-    else {$('.boardPile2').removeClass().addClass('boardPile2').addClass('card');
+    else {$('.boardPile2').removeClass().addClass('boardPile2').addClass('card').addClass('faceUp');
         boardState2 = $('.boardPile2');
         for (var i = 1; i < boardState2.length; i++) {
             renderCard(boardState2[i], boardPile2[i])
@@ -871,7 +879,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState3[boardState3.length - difference - i], boardPile3[i])
             }}}
-    else {$('.boardPile3').removeClass().addClass('boardPile3').addClass('card');
+    else {$('.boardPile3').removeClass().addClass('boardPile3').addClass('card').addClass('faceUp');
         boardState3 = $('.boardPile3');
         for (var i = 1; i < boardState3.length; i++) {
             renderCard(boardState3[i], boardPile3[i])
@@ -886,7 +894,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState4[boardState4.length - difference - i], boardPile4[i])
             }}}
-    else {$('.boardPile4').removeClass().addClass('boardPile4').addClass('card');
+    else {$('.boardPile4').removeClass().addClass('boardPile4').addClass('card').addClass('faceUp');
         boardState4 = $('.boardPile4');
         for (var i = 1; i < boardState4.length; i++) {
             renderCard(boardState4[i], boardPile4[i])
@@ -901,7 +909,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState5[boardState5.length - difference - i], boardPile5[i])
             }}}
-    else {$('.boardPile5').removeClass().addClass('boardPile5').addClass('card');
+    else {$('.boardPile5').removeClass().addClass('boardPile5').addClass('card').addClass('faceUp');
         boardState1 = $('.boardPile5');
         for (var i = 1; i < boardState5.length; i++) {
             renderCard(boardState5[i], boardPile5[i])
@@ -916,7 +924,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState6[boardState6.length - difference - i], boardPile6[i])
             }}}
-    else {$('.boardPile6').removeClass().addClass('boardPile6').addClass('card');
+    else {$('.boardPile6').removeClass().addClass('boardPile6').addClass('card').addClass('faceUp');
         boardState6 = $('.boardPile6');
         for (var i = 1; i < boardState6.length; i++) {
             renderCard(boardState6[i], boardPile6[i])
@@ -931,7 +939,7 @@ function renderPiles() {
                 }
                 else {renderCard(boardState7[boardState7.length - difference - i], boardPile7[i])
             }}}
-    else {$('.boardPile7').removeClass().addClass('boardPile7').addClass('card');
+    else {$('.boardPile7').removeClass().addClass('boardPile7').addClass('card').addClass('faceUp');
         boardState7 = $('.boardPile7');
         for (var i = 1; i < boardState7.length; i++) {
             renderCard(boardState7[i], boardPile7[i])
@@ -955,24 +963,22 @@ function flipFirstCard() {
         $(boardState7[boardPile7.length-1]).addClass('faceUp').removeClass('back-red')}};
 
 function flipAllOtherCards() {
-    flipOtherCards(boardPile1);
-    flipOtherCards(boardPile2);    
-    flipOtherCards(boardPile3);    
-    flipOtherCards(boardPile4);    
-    flipOtherCards(boardPile5);    
-    flipOtherCards(boardPile6);    
-    flipOtherCards(boardPile7);  
+    flipOtherCards(boardState1);
+    flipOtherCards(boardState2);    
+    flipOtherCards(boardState3);    
+    flipOtherCards(boardState4);    
+    flipOtherCards(boardState5);    
+    flipOtherCards(boardState6);    
+    flipOtherCards(boardState7);  
 }
 
 function flipOtherCards(arr) {
     for (var i = 0; i < arr.length; i++) {
-        if ($(arr[i]).hasClass('faceUp'))
-            for (var j = i; j > 0; j--) {
-                $(arr[j]).addClass('faceUp');
+        if ($(arr[i]).hasClass('faceUp')) {
+            $(arr[i+1]).addClass('faceUp')
+        }
             }
-
     }
-}
 
 function renderFaceDowns() {  
 for (var i = 0; i < boardPile1.length; i++)
@@ -1108,25 +1114,26 @@ function renderCard(pile, num) {
     case 51: $(pile).addClass('cK');
         break;}
 if (num === undefined) {
-    $(pile).addClass('empty');
+
+    $(pile).removeClass('hA h01 h02 h03 h04 h05 h06 h07 h08 h09 h10 hJ hQ hK dA d01 d02 d03 d04 d05 d06 d07 d08 d09 d10 dJ dQ dK sA s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 sJ sQ sK cA c01 c02 c03 c04 c05 c06 c07 c08 c09 c10 cJ cQ cK faceUp').addClass('empty');
 }
 else {$(pile).removeClass('empty')}
 }
 
 function resetFirstPile() {
-    firstPile = [];
+    firstPile.length = 0;
         render();
     }
 // render
 function render() {
     checkWin();
-    renderPiles();    
+    renderPiles();
+    renderFaceDowns();    
     flipFirstCard();
     flipAllOtherCards();      
     renderTop();
-    renderFaceDowns();
-    addEmptyClick();
     addFaceUpClick();
+    addEmptyClick();    
 }
 
 init();
