@@ -33,7 +33,6 @@ $(function() {
     var deckPileState = [];
     var moves;
     var score;
-    var rows;
     
     
     // Ace: 0, king: 12 
@@ -41,7 +40,8 @@ $(function() {
     
     //set up the board
     function init() {
-        initializeVariables();    
+        initializeVariables();
+        resetClasses();
         staticCards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
         deck = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51];
         deck = makeRandom(deck);
@@ -52,7 +52,7 @@ $(function() {
         makePile(boardPile5, 5);
         makePile(boardPile6, 6);
         makePile(boardPile7, 7);
-        $('winMessage').html('');
+        $('.winMessage').text('');
         render();
     }
     function initializeVariables() {
@@ -87,6 +87,13 @@ $(function() {
     finalState4.length = 0;
     deckPileState.length = 0;}
     
+    function resetClasses() {
+        var rows = $('td');
+        for (var i = 0; i < rows.length; i++) {
+            $(rows[i]).removeClass('hA h01 h02 h03 h04 h05 h06 h07 h08 h09 h10 hJ hQ hK dA d01 d02 d03 d04 d05 d06 d07 d08 d09 d10 dJ dQ dK sA s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 sJ sQ sK cA c01 c02 c03 c04 c05 c06 c07 c08 c09 c10 cJ cQ cK faceUp')
+        }
+    }
+    
     //permanent event listeners
     $('.deck').on('click', function(evt) {
     
@@ -102,6 +109,7 @@ $(function() {
         if (deckPile.length > 0) {
             firstPile.length = 0;
             firstPile.unshift(deckPile[0]);
+            $(this).css('opacity', '.8')
         }
     })
     
@@ -123,6 +131,9 @@ $(function() {
         }
         resetFirstPile();
         })
+    $('button').on('click', function(evt) {
+        init();
+    })
     
     //deck randomizer
     function makeRandom(arr) {
@@ -141,72 +152,74 @@ $(function() {
         pile.unshift(deck.shift());
     }
     
-    function newAddFaceUpClick() {
-        rows = $('.faceUp');        
-        $(rows).off();        
-        newAddFaceUpClickStep(boardPile1, 'boardPile1');
-        newAddFaceUpClickStep(boardPile2, 'boardPile2');
-        newAddFaceUpClickStep(boardPile3, 'boardPile3');
-        newAddFaceUpClickStep(boardPile4, 'boardPile4');
-        newAddFaceUpClickStep(boardPile5, 'boardPile5');
-        newAddFaceUpClickStep(boardPile6, 'boardPile6');
-        newAddFaceUpClickStep(boardPile7, 'boardPile7');        
-    }
-
-    function newAddFaceUpClickStep(pile, string) {
-        addFaceUpClick(pile, string, 'row1', 1)
-        addFaceUpClick(pile, string, 'row2', 2)
-        addFaceUpClick(pile, string, 'row3', 3)
-        addFaceUpClick(pile, string, 'row4', 4)
-        addFaceUpClick(pile, string, 'row5', 5)
-        addFaceUpClick(pile, string, 'row6', 6)
-        addFaceUpClick(pile, string, 'row7', 7)
-        addFaceUpClick(pile, string, 'row8', 8)
-        addFaceUpClick(pile, string, 'row9', 9)
-        addFaceUpClick(pile, string, 'row10', 10)
-        addFaceUpClick(pile, string, 'row11', 11)
-        addFaceUpClick(pile, string, 'row12', 12)
-        addFaceUpClick(pile, string, 'row13', 13)
-        addFaceUpClick(pile, string, 'row14', 14)
-        addFaceUpClick(pile, string, 'row15', 15)
-        addFaceUpClick(pile, string, 'row16', 16)
-        addFaceUpClick(pile, string, 'row17', 17)
-        addFaceUpClick(pile, string, 'row18', 18)
-        addFaceUpClick(pile, string, 'row19', 19)
-    }
+    // click event for faceUp cards
+    function addFaceUpClick() {
+    $('.faceUp').off();
+    $('.faceUp').on('click', function(evt) {
+        if (firstPile.length === 0) {
+            if ($(this).hasClass('boardPile1')) {
+                if ($(this).parent().hasClass('row1')) {
+                    for (var i = boardPile1.length-1 ; i >= 0; i--)
+                        firstPile.unshift(boardPile1[i])
+                        $(this).css('opacity', '.8')
+                }
+    }}
+    else { 
+        if ($(this).hasClass('boardPile1')) {
+            checkBoardMove(firstPile, boardPile1)
+            }
+        else if ($(this).hasClass('boardPile2')) {
+            checkBoardMove(firstPile, boardPile2) 
+        }
+        else if ($(this).hasClass('boardPile3')) {
+            checkBoardMove(firstPile, boardPile3)
+            }
+        else if ($(this).hasClass('boardPile4')) {
+            checkBoardMove(firstPile, boardPile4)
+        }
+        else if ($(this).hasClass('boardPile5')) {
+            checkBoardMove(firstPile, boardPile5)
+        }
+        else if ($(this).hasClass('boardPile6')) {
+            checkBoardMove(firstPile, boardPile6)
+        }
+        else if ($(this).hasClass('boardPile7')) {
+            checkBoardMove(firstPile, boardPile7)
+        }}
+        
+    })}
     
-    function addFaceUpClick(pile, string, row, num) {
-        $('td').filter(string).on('click', function(evt) {
-                if (firstPile.length === 0) {
-                    for (var i = pile.length-num; i >= 0; i--) {                                
-                        firstPile.unshift(pile[i])
-                        console.log(firstPile);
-                    }}
-                else { 
-                    checkBoardMove(firstPile, pile)
-                    }
-                    })}
-
-
+        
+    
     // functionally identical to faceUpClick on [0]
     function addEmptyClick() {
     $('.empty').off();
     $('.empty').on('click', function(evt) {
         if (firstPile.length === 0) {
             if ($(this).hasClass('boardPile1')) {
-                firstPile.unshift(boardPile1[0])}
+                firstPile.unshift(boardPile1[0])
+                $(boardState1[boardPile1.length-1]).css('opacity', '.8')
+            }
             else if ($(this).hasClass('boardPile2')) {
-                firstPile.unshift(boardPile2[0])}
+                firstPile.unshift(boardPile2[0])
+                $(boardState2[boardPile2.length-1]).css('opacity', '.8')
+            }
             else if ($(this).hasClass('boardPile3')) {
-                firstPile.unshift(boardPile3[0])}
+                firstPile.unshift(boardPile3[0])
+                $(boardState3[boardPile3.length-1]).css('opacity', '.8')}
             else if ($(this).hasClass('boardPile4')) {
-                firstPile.unshift(boardPile4[0])}
+                firstPile.unshift(boardPile4[0])
+                $(boardState4[boardPile4.length-1]).css('opacity', '.8')}
             else if ($(this).hasClass('boardPile5')) {
-                firstPile.unshift(boardPile5[0])}
+                firstPile.unshift(boardPile5[0])
+                $(boardState5[boardPile5.length-1]).css('opacity', '.8')}
             else if ($(this).hasClass('boardPile6')) {
-                firstPile.unshift(boardPile6[0])}
+                firstPile.unshift(boardPile6[0])
+                $(boardState6[boardPile6.length-1]).css('opacity', '.8')}
             else if ($(this).hasClass('boardPile7')) {
-                firstPile.unshift(boardPile7[0])}}
+                firstPile.unshift(boardPile7[0])
+                $(boardState7[boardPile7.length-1]).css('opacity', '.8')}
+            }
         else {
             if ($(this).hasClass('boardPile1')) {
                 checkBoardMove(firstPile, boardPile1)
@@ -228,8 +241,14 @@ $(function() {
             }
             else if ($(this).hasClass('boardPile7')) {
                 checkBoardMove(firstPile, boardPile7)
-        }}})}
+        }}
+    })}
     
+    function selectPile() {
+        if ($(boardPile1).inArray) {
+            $('.boardPile1').css('opacity', '.8');
+        }
+    }
     
     // Ace: 0, king: 12 
     // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
@@ -347,6 +366,7 @@ $(function() {
     
     function illegal() {
         resetFirstPile();
+        render();
         }
         
     
@@ -369,7 +389,7 @@ $(function() {
             if (finalPile2[0] === staticCards[12] || finalPile2[0] === staticCards[25] || finalPile2[0] === staticCards[38] || finalPile2[0] === staticCards[51]) {
                 if (finalPile3[0] === staticCards[12] || finalPile3[0] === staticCards[25] || finalPile3[0] === staticCards[38] || finalPile3[0] === staticCards[51]) {
                     if (finalPile4[0] === staticCards[12] || finalPile4[0] === staticCards[25] || finalPile4[0] === staticCards[38] || finalPile4[0] === staticCards[51]) {
-                        $('.winMessage').html('You win!');
+                        $('.winMessage').text('You win!');
                         
                     }
                 }
@@ -378,22 +398,12 @@ $(function() {
         else return;
     }
     
-    // resest button
-    
-    // move counter
-    
-    // timer?
-    
-    // score?
-    
-    // save high scores?
-    
     // renders the top table and cards
     function renderTop() {
         if (deck.length > 0) {
             $('.deck').addClass('card').addClass('back-red');
         }
-        else $(".deck").removeClass('back-red').html("reshuffle?");
+        else $(".deck").removeClass('back-red');
         if (deckPile.length > 0) {
             $('.deckPile').removeClass().addClass('deckPile').addClass('card')
             deckPileState = $('deckPile')
@@ -724,11 +734,17 @@ $(function() {
     
     function updateScore() {
         score = (finalPile1.length + finalPile2.length + finalPile3.length + finalPile4.length) * 25;
-        $('.score').html('Score: ' + score)
+        $('.score').text('Score: ' + score)
     }
     
     function updateMoves() {
-        $('.moveCounter').html('Moves: ' + moves)
+        $('.moveCounter').text('Moves: ' + moves)
+    }
+    
+    function makeFaceUpSolid() {
+        $('.faceUp').not('.empty').css('opacity', '.99');
+        $('.empty').css('opacity', '0');
+        $('.deckPile').css('opacity', '1')
     }
     
     // render
@@ -739,10 +755,11 @@ $(function() {
         flipFirstCard();
         flipAllOtherCards();      
         renderTop();
-        newAddFaceUpClick();
+        addFaceUpClick();
         addEmptyClick();    
         updateScore();
         updateMoves();
+        makeFaceUpSolid();
     }
     
     init();

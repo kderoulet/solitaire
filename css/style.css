@@ -19,3 +19,6 @@ span {
     opacity: 0;
   }
   
+  .winMessage {
+    text-align: center;
+  }
