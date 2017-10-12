@@ -1197,7 +1197,8 @@ function updateMoves() {
 function makeFaceUpSolid() {
     $('.faceUp').not('.empty').css('opacity', '.99');
     $('.empty').css('opacity', '0');
-    $('.deckPile').css('opacity', '1')
+    $('.deckPile').css('opacity', '1');
+    $('.back-red').css('opacity', '1');
 }
 
 // render

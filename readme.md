@@ -2,14 +2,14 @@
 ### by Kevin de Roulet
 
 ![](/images/gameplay.png)
-Solitaire gameplay with the 8 of hearts selected
+Gameplay with the 8 of hearts selected
 
 
 ## Technologies Used
--HTML
--CSS
--JavaScript
--Jquery
+- HTML
+- CSS
+- JavaScript
+- Jquery
 
 ## Getting Started 
 
@@ -38,6 +38,7 @@ Adapted from stack overflow, this is a JavaScript rendering of the Durstenfeld S
 So, given a 5-length array of [0, 1, 2, 3, 4], console.logging the array every cycle, we might get the following results:
 
 ![](/images/randomizer.png)
+
 Notice how the array is randomly resorted from right to left
 
 So, it chooses a random number and switches it with the number at the very end, excluding the last digit on the next go-round. The final remaining value is assigned to the [0] value of the array. It thus builds a stack, starting from the bottom up, of random values in our array. After this randomization, we unshift from this randomized 52-length array to build the arrays behind the 7 starting piles on the board. 
@@ -76,19 +77,24 @@ function checkBoardMove(firstPile, secondPile) {
             else illegal()}  
     }
 ```
-So the function first rules out kings--unless the receiving pile is empty, moving a king is not a legal move. Once the function knows that it's not a king being moved, it checks for suit(whether the number is below 13, 26, 39, or 52), and it checks to see whether or not the card is being placed on a card 1 above it of the opposite color. 
+So the function first rules out kings; unless the receiving pile is empty, moving a king is not a legal move. Once the function knows that it's not a king being moved, it checks for suit(whether the number is below 13, 26, 39, or 52), and it checks to see whether or not the card is being placed on a card 1 above it of the opposite color. 
 
 The function for checking a move on the final piles is even more simple--because cards can only go with other cards of the same suit, the function checks for aces and then allows any card that's 1 above the current card in the pile. 
 
 ### Rendering
 
-As noted above, all of the cards are represented in a single unchanging array. So, by comparing the values of the arrays representing the board state with the values in the unchanging array, the game renders the correct card being represented by each number in the array. We also have a few additional classes which are used to determine precisely what should be rendered--the 'empty' class is used for empty slots, so a card with 0 opacity is rendered; the 'faceUp' class is used for cards which should be shown to the player, rendering the corresponding face-up card; and the 'back-red' class is used for cards which are meant to appear face-down to the player. 
+As noted above, all of the cards are represented in a single unchanging array. So, by comparing the values of the arrays representing the board state with the values in the unchanging array, the game renders the correct card being represented by each number in the array. We also have a few additional classes which are used to determine precisely what should be rendered; the 'empty' class is used for empty slots, so a card with 0 opacity is rendered; the 'faceUp' class is used for cards which should be shown to the player, rendering the corresponding face-up card; and the 'back-red' class is used for cards which are meant to appear face-down to the player. 
 
-Currently the largest function in the JS is for accessing the correct number from a mouse click. There are potentially 112 different places that a card might be placed on the main board, and so for whichever is clicked, the function selects the correct array through its start--for instance, in a pile of 7 cards, if one clicks the third, then [2], [1], and [0] are added to a temporary array for legal move-checking. 
+Currently the largest function in the JS is for accessing the correct number from a mouse click. There are potentially 112 different places that a card might be placed on the main board, and so for whichever is clicked, the function selects the correct array through its start; for instance, in a pile of 7 cards, if one clicks the third, then [2], [1], and [0] are added to a temporary array for legal move-checking. 
 
 ## Next Steps
 
 ![](/images/bigfunction.png)
+
 Functions can be too big.
 
 For further work to be done, it would be good to figure out perhaps a better way of storing board data. The giant function that handles clicks is a little unweildy, and so a reworking of the data arrays would likely enable a smaller function for sorting out clicks. 
+
+It might also be cool to add more game modes. Some variants of solitaire allow draw 3 in exchange for more points per card in the final piles; although this would require some CSS reworking, this is a somewhat reasonable feature that could be added. Some individuals might prefer a 'casino mode' with money instead of points and a limited number of deck recycles. 
+
+Finally, there could conceivably be a variety of backgrounds other than the traditional casino green. This would only take a little JS/CSS, and it would allow greater user customization. 
