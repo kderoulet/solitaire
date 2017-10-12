@@ -13,9 +13,9 @@
 
 The game can be found here. 
 
-The object of the game is to get a king in each of the four piles up top. To do this, those piles must be built from Ace to King, all of the same suit. Any face-up card on the board can be moved, and face-down cards flip over when there are no cards ahead of them. Stacks on the board must be built from King - Ace in alternating color sort (i.e. Red King, Black Queen, Red Jack, etc.).
+The object of the game is to get a king in each of the four piles up top. To do this, those piles must be built from Ace to King, all of the same suit. Any face-up card on the board can be moved, and face-down cards flip over when there are no cards ahead of them. Stacks on the board must be built from King to Ace in alternating color sort (i.e. Red King, Black Queen, Red Jack, etc.).
 
-You can draw from the deck as many times as you want, and the pile next to it flips over to replace the deck when its empty. 
+You can draw from the deck as many times as you want, and the pile next to it flips over to replace the deck when it's empty. 
 
 The maximum possible number of points one can get is 1300 (25 points per card in one of the final stacks). However, one can always try to beat previous records by getting to 1300 in fewer moves. 
 

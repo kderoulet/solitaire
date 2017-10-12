@@ -1,6 +1,6 @@
 $(function() {
 
-    // all of the vars
+// all of the vars
 var staticCards = [];
 var deck = [];
 var tempDeck = [];
@@ -17,8 +17,6 @@ var finalPile2 = [];
 var finalPile3 = [];
 var finalPile4 = [];
 var firstPile = [];
-var faceUp = [];
-var boardPile1Group = [];
 var boardState1 = [];
 var boardState2 = [];
 var boardState3 = [];
@@ -55,6 +53,7 @@ function init() {
     $('.winMessage').text('');
     render();
 }
+
 function initializeVariables() {
 moves = 0;
 score = 0;
@@ -72,8 +71,6 @@ finalPile2.length = 0;
 finalPile3.length = 0;
 finalPile4.length = 0;
 firstPile.length = 0;
-faceUp.length = 0;
-boardPile1Group.length = 0;
 boardState1.length = 0;
 boardState2.length = 0;
 boardState3.length = 0;
@@ -85,7 +82,8 @@ finalState1.length = 0;
 finalState2.length = 0;
 finalState3.length = 0;
 finalState4.length = 0;
-deckPileState.length = 0;}
+deckPileState.length = 0;
+}
 
 function resetClasses() {
     var rows = $('td');
@@ -131,6 +129,7 @@ $('.finalPile1, .finalPile2, .finalPile3, .finalPile4').on('click', function(evt
     }
     resetFirstPile();
     })
+
 $('button').on('click', function(evt) {
     init();
 })
@@ -151,7 +150,6 @@ function makePile(pile, num) {
     for (var i = 0; i < num; i++)
     pile.unshift(deck.shift());
 }
-
 
 // click event for faceUp cards
 function addFaceUpClick() {
@@ -643,9 +641,8 @@ else {
     
 })}
 
-    
-
-// functionally identical to faceUpClick on [0]
+// creates click event for empty tds
+// (functionally identical to faceUpClick on [0])
 function addEmptyClick() {
 $('.empty').off();
 $('.empty').on('click', function(evt) {
@@ -706,9 +703,7 @@ function selectPile() {
 
 // Ace: 0, king: 12 
 // 0-12: hearts, 13-25:diamonds, 26-38:spades, 39-52:clubs
-// legal moves firstPile.length-1
-// we want to check the last number of firstPile: firstPile[firstPile.length-1]
-//
+// Checks the legality of any move on the main board
 function checkBoardMove(firstPile, secondPile) {
     if (secondPile.length === 0) {
         legal(firstPile, secondPile);
@@ -738,6 +733,7 @@ function checkBoardMove(firstPile, secondPile) {
             else illegal()}  
     }
 
+// checks legality of moves onto the final piles
 function checkFinalMove(firstPile, secondPile) {
     if (firstPile.length === 1) {
         if (firstPile[0] === staticCards[0] || firstPile[0] === staticCards[13] || firstPile[0] === staticCards[26] || firstPile[0] === staticCards[39]) {
@@ -746,7 +742,6 @@ function checkFinalMove(firstPile, secondPile) {
     }
             else illegal();
     }
-
         else if (firstPile[0] === secondPile[0] + 1) {
             legal(firstPile, secondPile)
         }
@@ -754,7 +749,8 @@ function checkFinalMove(firstPile, secondPile) {
     }
     else illegal();
 }
-    
+
+// processes legal moves
 function legal(firstPile, secondPile) {
     for (var i = firstPile.length-1; i >= 0; i--) {
         secondPile.unshift(firstPile[i])
@@ -815,21 +811,15 @@ function legal(firstPile, secondPile) {
     secondPile.shift();
     moves++;
     render();
-    
 }
 
+// returns the board to normal state after an illegal move
 function illegal() {
     resetFirstPile();
     render();
     }
-    
 
-    // board pile to board pile (include empty rules)
-    // board pile to final pile
-    // deck pile to final pile
-    // deck pile to board pile
-
-
+// flips the deckPile into the deck when the deck is empty
 function reloadDeck() {
     if (deck.length === 0) {
         for (var i = deckPile.length; i > 0; i--) {
@@ -864,25 +854,21 @@ function renderTop() {
         renderCard('.deckPile', deckPile[0]);
     }
     else $('.deckPile').removeClass().addClass('deckPile').addClass('card');
-
     if (finalPile1.length > 0) {
         finalState1 = $('.finalPile1');
         removeExtraClasses('.finalPile1');
         renderCard(finalState1[0], finalPile1[0])
     }
-
     if (finalPile2.length > 0) {
         finalState2 = $('.finalPile2');
         removeExtraClasses('.finalPile2');        
         renderCard(finalState2[0], finalPile2[0])
     }
-
     if (finalPile3.length > 0) {
         finalState3 = $('.finalPile3');
         removeExtraClasses('.finalPile3');        
         renderCard(finalState3[0], finalPile3[0])
     }
-
     if (finalPile4.length > 0) {
         finalState4 = $('.finalPile4');
         removeExtraClasses('.finalPile4');        
@@ -895,8 +881,7 @@ function removeExtraClasses(pile) {
     $(pile).removeClass('hA h01 h02 h03 h04 h05 h06 h07 h08 h09 h10 hJ hQ hK dA d01 d02 d03 d04 d05 d06 d07 d08 d09 d10 dJ dQ dK sA s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 sJ sQ sK cA c01 c02 c03 c04 c05 c06 c07 c08 c09 c10 cJ cQ cK faceUp');
 }
 
-//  render from last to first, if tr 1 is taken, go tr 2
-// good option for reworking
+// renders piles from last to first, if tr 1 is taken, go tr 2
 function renderPiles() {
     if (boardPile1.length > 0) {
         boardState1 = $('.boardPile1');
@@ -1038,8 +1023,8 @@ function flipOtherCards(arr) {
         if ($(arr[i]).hasClass('faceUp')) {
             $(arr[i+1]).addClass('faceUp')
         }
-            }
     }
+}
 
 // The fall-back render function--if something on the board does not have another
 // class, then the card is rendered as a cardback
@@ -1181,20 +1166,24 @@ if (num === undefined) {
 else {$(pile).removeClass('empty')}
 }
 
+// resets the firstPile variable
 function resetFirstPile() {
     firstPile.length = 0;
         render();
     }
 
+// updates the score feature
 function updateScore() {
     score = (finalPile1.length + finalPile2.length + finalPile3.length + finalPile4.length) * 25;
     $('.score').text('Score: ' + score)
 }
 
+//updates the movecounter feature
 function updateMoves() {
     $('.moveCounter').text('Moves: ' + moves)
 }
 
+// normalizes opacity
 function makeFaceUpSolid() {
     $('.faceUp').not('.empty').css('opacity', '.99');
     $('.empty').css('opacity', '0');
@@ -1202,7 +1191,6 @@ function makeFaceUpSolid() {
     $('.back-red').css('opacity', '1');
 }
 
-// render
 function render() {
     checkWin();
     renderPiles();
@@ -1218,7 +1206,6 @@ function render() {
 }
 
 init();
-
 })
 
 
