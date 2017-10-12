@@ -169,418 +169,418 @@ $('.faceUp').on('click', function(evt) {
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile1.length-3; i >= 0; i--) 
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile1.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile1.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile1.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile1.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile1.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile1.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile1.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile1.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile1.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile1.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile1[i])
-            $(this).css('opacity', '.8')}}
+                    $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile2')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile2.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile2.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile2.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile2.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile2.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile2.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile2.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile2.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile2.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile2.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile2.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile2.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile2.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile2.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile2[i])
-            $(this).css('opacity', '.8')}}
+                    $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile3')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile3.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile3.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile3.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile3.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile3.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile3.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile3.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile3.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile3.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile3.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile3.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile3.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile3.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile3.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile3.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile3[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             }
         if ($(this).hasClass('boardPile4')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile4.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile4.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile4.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile4.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile4.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile4.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile4.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile4.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile4.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile4.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile4.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile4.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile4.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile4.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile4.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile4.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile4[i])
-            $(this).css('opacity', '.8')} }
+                    $(this).css('opacity', '.8')} }
         if ($(this).hasClass('boardPile5')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile5.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile5.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile5.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile5.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile5.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile5.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile5.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile5.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile5.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile5.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile5.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile5.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile5.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile5.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile5.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile5.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row17')) {
                 for (var i = boardPile5.length-17; i >= 0; i--)
                     firstPile.unshift(boardPile5[i])
-            $(this).css('opacity', '.8')}}
+                    $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile6')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile6.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile6.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile6.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile6.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile6.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile6.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile6.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile6.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile6.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile6.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile6.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile6.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row13')) {
                 for (var i = boardPile6.length-13; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row14')) {
                 for (var i = boardPile6.length-14; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row15')) {
                 for (var i = boardPile6.length-15; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row16')) {
                 for (var i = boardPile6.length-16; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row17')) {
                 for (var i = boardPile6.length-17; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row18')) {
                 for (var i = boardPile6.length-18; i >= 0; i--)
                     firstPile.unshift(boardPile6[i])
-            $(this).css('opacity', '.8')}}
+                    $(this).css('opacity', '.8')}}
         if ($(this).hasClass('boardPile7')) {
             if ($(this).parent().hasClass('row1')) {
                 for (var i = boardPile7.length-1; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row2')) {
                 for (var i = boardPile7.length-2; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row3')) {
                 for (var i = boardPile7.length-3; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row4')) {
                 for (var i = boardPile7.length-4; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row5')) {
                 for (var i = boardPile7.length-5; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row6')) {
                 for (var i = boardPile7.length-6; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row7')) {
                 for (var i = boardPile7.length-7; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row8')) {
                 for (var i = boardPile7.length-8; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row9')) {
                 for (var i = boardPile7.length-9; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row10')) {
                 for (var i = boardPile7.length-10; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row11')) {
                 for (var i = boardPile7.length-11; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
-            $(this).css('opacity', '.8')}
+                    $(this).css('opacity', '.8')}
             else if ($(this).parent().hasClass('row12')) {
                 for (var i = boardPile7.length-12; i >= 0; i--)
                     firstPile.unshift(boardPile7[i])
@@ -615,30 +615,28 @@ $('.faceUp').on('click', function(evt) {
             $(this).css('opacity', '.8')}}
     
 }
-else { 
-    if ($(this).hasClass('boardPile1')) {
-        checkBoardMove(firstPile, boardPile1)
+    else { 
+        if ($(this).hasClass('boardPile1')) {
+            checkBoardMove(firstPile, boardPile1)
         }
-    else if ($(this).hasClass('boardPile2')) {
-        checkBoardMove(firstPile, boardPile2) 
-    }
-    else if ($(this).hasClass('boardPile3')) {
-        checkBoardMove(firstPile, boardPile3)
+        else if ($(this).hasClass('boardPile2')) {
+            checkBoardMove(firstPile, boardPile2) 
         }
-    else if ($(this).hasClass('boardPile4')) {
-        checkBoardMove(firstPile, boardPile4)
+        else if ($(this).hasClass('boardPile3')) {
+            checkBoardMove(firstPile, boardPile3)
+        }
+        else if ($(this).hasClass('boardPile4')) {
+            checkBoardMove(firstPile, boardPile4)
     }
-    else if ($(this).hasClass('boardPile5')) {
-        checkBoardMove(firstPile, boardPile5)
+        else if ($(this).hasClass('boardPile5')) {
+            checkBoardMove(firstPile, boardPile5)
     }
-    else if ($(this).hasClass('boardPile6')) {
-        checkBoardMove(firstPile, boardPile6)
+        else if ($(this).hasClass('boardPile6')) {
+            checkBoardMove(firstPile, boardPile6)
     }
-    else if ($(this).hasClass('boardPile7')) {
-        checkBoardMove(firstPile, boardPile7)
+        else if ($(this).hasClass('boardPile7')) {
+            checkBoardMove(firstPile, boardPile7)
     }}
-
-    
 })}
 
 // creates click event for empty tds
@@ -657,20 +655,25 @@ $('.empty').on('click', function(evt) {
         }
         else if ($(this).hasClass('boardPile3')) {
             firstPile.unshift(boardPile3[0])
-            $(boardState3[boardPile3.length-1]).css('opacity', '.8')}
+            $(boardState3[boardPile3.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile4')) {
             firstPile.unshift(boardPile4[0])
-            $(boardState4[boardPile4.length-1]).css('opacity', '.8')}
+            $(boardState4[boardPile4.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile5')) {
             firstPile.unshift(boardPile5[0])
-            $(boardState5[boardPile5.length-1]).css('opacity', '.8')}
+            $(boardState5[boardPile5.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile6')) {
             firstPile.unshift(boardPile6[0])
-            $(boardState6[boardPile6.length-1]).css('opacity', '.8')}
+            $(boardState6[boardPile6.length-1]).css('opacity', '.8')
+        }
         else if ($(this).hasClass('boardPile7')) {
             firstPile.unshift(boardPile7[0])
-            $(boardState7[boardPile7.length-1]).css('opacity', '.8')}
+            $(boardState7[boardPile7.length-1]).css('opacity', '.8')
         }
+    }
     else {
         if ($(this).hasClass('boardPile1')) {
             checkBoardMove(firstPile, boardPile1)
@@ -739,9 +742,9 @@ function checkFinalMove(firstPile, secondPile) {
         if (firstPile[0] === staticCards[0] || firstPile[0] === staticCards[13] || firstPile[0] === staticCards[26] || firstPile[0] === staticCards[39]) {
             if (secondPile.length === 0) {
             legal(firstPile, secondPile);
-    }
+            }
             else illegal();
-    }
+            }
         else if (firstPile[0] === secondPile[0] + 1) {
             legal(firstPile, secondPile)
         }
@@ -759,8 +762,7 @@ function legal(firstPile, secondPile) {
     switch (firstPile[0]) {
         case deckPile[0]: 
             for (var i = firstPile.length; i > 0; i--) 
-                {deckPile.shift();
-            }
+                {deckPile.shift()}
         break;
         case boardPile1[0]: 
             for (var i = firstPile.length; i > 0; i--) 
