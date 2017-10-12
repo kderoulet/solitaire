@@ -11,7 +11,7 @@
 
 ## Getting Started 
 
-The game can be found [here](https://kderoulet.github.io/solitaire/). 
+The game can be found [here](https://www.kderoulet.github.io/solitaire/). 
 
 The object of the game is to get a king in each of the four piles up top. To do this, those piles must be built from Ace to King, all of the same suit. Any face-up card on the board can be moved, and face-down cards flip over when there are no cards ahead of them. Stacks on the board must be built from King to Ace in alternating color sort (i.e. Red King, Black Queen, Red Jack, etc.).
 
