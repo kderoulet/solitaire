@@ -2,8 +2,6 @@
 ### by Kevin de Roulet
 
 ![](/images/gameplay.png)
-Gameplay with the 8 of hearts selected
-
 
 ## Technologies Used
 - HTML
@@ -12,6 +10,12 @@ Gameplay with the 8 of hearts selected
 - Jquery
 
 ## Getting Started 
+
+The game can be found here. 
+
+The object of the game is to get a king in each of the four piles up top. To do this, those piles must be built from Ace to King, all of the same suit. Any face-up card on the board can be moved, and face-down cards flip over when there are no cards ahead of them. Stacks on the board must be built from King - Ace in alternating color sort (i.e. Red King, Black Queen, Red Jack, etc.).
+
+You can draw from the deck as many times as you want, and the pile next to it flips over to replace the deck when its empty. 
 
 The maximum possible number of points one can get is 1300 (25 points per card in one of the final stacks). However, one can always try to beat previous records by getting to 1300 in fewer moves. 
 
@@ -39,9 +43,7 @@ So, given a 5-length array of [0, 1, 2, 3, 4], console.logging the array every c
 
 ![](/images/randomizer.png)
 
-Notice how the array is randomly resorted from right to left
-
-So, it chooses a random number and switches it with the number at the very end, excluding the last digit on the next go-round. The final remaining value is assigned to the [0] value of the array. It thus builds a stack, starting from the bottom up, of random values in our array. After this randomization, we unshift from this randomized 52-length array to build the arrays behind the 7 starting piles on the board. 
+So, it chooses a random number and switches it with the number at the very end, excluding the last digit on the next go-round. When finished, the final remaining value is assigned to the [0] value of the array. It thus builds a stack from the bottom up of random values in our array. After this randomization, we shift from this randomized 52-length array to build the arrays behind the 7 starting piles on the board. 
 
 ### The Card Movement Math
 
@@ -79,7 +81,7 @@ function checkBoardMove(firstPile, secondPile) {
 ```
 So the function first rules out kings; unless the receiving pile is empty, moving a king is not a legal move. Once the function knows that it's not a king being moved, it checks for suit(whether the number is below 13, 26, 39, or 52), and it checks to see whether or not the card is being placed on a card 1 above it of the opposite color. 
 
-The function for checking a move on the final piles is even more simple--because cards can only go with other cards of the same suit, the function checks for aces and then allows any card that's 1 above the current card in the pile. 
+The function for checking a move on the final piles is even more simple; because cards can only go with other cards of the same suit, the function checks for aces and then allows any card that's 1 above the current card in the pile. 
 
 ### Rendering
 
@@ -91,10 +93,8 @@ Currently the largest function in the JS is for accessing the correct number fro
 
 ![](/images/bigfunction.png)
 
-Functions can be too big.
+For further work to be done, it would be good to figure out perhaps a better way of storing board data. The giant function that handles clicks is a little unweildy, and so a reworking of the data arrays would likely enable a smaller function for sorting out clicks. Further, although the table that is currently implemented does work, part of the reason for the long function is the over 100 td elements necessary to make the table fully functional. It could be useful to rework this display mechanism as well.
 
-For further work to be done, it would be good to figure out perhaps a better way of storing board data. The giant function that handles clicks is a little unweildy, and so a reworking of the data arrays would likely enable a smaller function for sorting out clicks. 
-
-It might also be cool to add more game modes. Some variants of solitaire allow draw 3 in exchange for more points per card in the final piles; although this would require some CSS reworking, this is a somewhat reasonable feature that could be added. Some individuals might prefer a 'casino mode' with money instead of points and a limited number of deck recycles. 
+It might also be cool to add more game modes. Some variants of solitaire allow draw 3 in exchange for more points per card in the final piles; although this would require some CSS reworking, this is a somewhat reasonable feature that could be added. Some individuals also might prefer a 'casino mode' with money instead of points and a limited number of deck recycles. 
 
 Finally, there could conceivably be a variety of backgrounds other than the traditional casino green. This would only take a little JS/CSS, and it would allow greater user customization. 

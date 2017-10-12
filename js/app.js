@@ -152,6 +152,7 @@ function makePile(pile, num) {
     pile.unshift(deck.shift());
 }
 
+
 // click event for faceUp cards
 function addFaceUpClick() {
 $('.faceUp').off();
