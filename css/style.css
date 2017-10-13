@@ -31,11 +31,6 @@ span {
   padding: 10px;
 }
 
-.button {
-  background-color: white;
-  border: 1px solid black;
-}
-
 @media only screen and 
 (min-width: 540px) {
   body {
