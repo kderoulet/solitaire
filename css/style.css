@@ -1,24 +1,63 @@
 body {
-    background-color: darkgreen;
-    min-width: 540px;
-    color: white;
-  }
+  background-color: darkgreen;
+  font-size: 9px;
+  min-width: 300px;
+}
 
 span {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.card {
+  margin: 2px 2px -45px 2px;    
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.empty {
+  opacity: 0;
+}
+  
+.winMessage {
+  text-align: center;
+}
+
+.topPanel {
+  text-align: center;
+  padding: 10px;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid black;
+}
+
+@media only screen and 
+(min-width: 540px) {
+  body {
+    min-width: 540px;
+    color: white;
+    font-size: 16px;
+  }
+
+  span {
     display: inline-block;
     padding: 0 20px;
+}
+  .wrapper {
+  margin: 0 auto;
+  width: 540px;
 }
 
   .topPanel {
     text-align: center;
     padding: 10px;
   }
-  
-  .empty {
-    opacity: 0;
+  .card {
+    margin: 5px 5px -80px 5px;    
   }
-  
-  .winMessage {
-    text-align: center;
-  }
-  
+}
