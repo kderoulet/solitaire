@@ -2,6 +2,7 @@
 ### by Kevin de Roulet
 
 ![](/images/gameplay.png)
+[Check out the Trello](https://trello.com/b/2r5HTP91/solitaire)
 
 ## Technologies Used
 - HTML
