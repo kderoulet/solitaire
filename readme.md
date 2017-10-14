@@ -98,10 +98,6 @@ This solitaire webapp is coded for mobile first; its default styling is for smal
 
 ## Next Steps
 
-![](/images/bigfunction.png)
-
-For further work to be done, it would be good to figure out perhaps a better way of storing board data. The giant function that handles clicks is a little unweildy, and so a reworking of the data arrays would likely enable a smaller function for sorting out clicks. Further, although the table that is currently implemented does work, part of the reason for the long function is the over 100 td elements necessary to make the table fully functional. It could be useful to rework this display mechanism as well.
-
-It might also be worthwhile to add more game modes. Some variants of solitaire allow draw 3 in exchange for more points per card in the final piles; although this would require some CSS reworking, this is a somewhat reasonable feature that could be added. Some individuals also might prefer a 'casino mode' with money instead of points and a limited number of deck recycles. 
+It might be worthwhile to add more game modes. Some variants of solitaire allow draw 3 in exchange for more points per card in the final piles; although this would require some CSS reworking, this is a somewhat reasonable feature that could be added. Some individuals also might prefer a 'casino mode' with money instead of points and a limited number of deck recycles. 
 
 Finally, there could conceivably be a variety of backgrounds other than the traditional casino green. This would only take a little JS/CSS, and it would allow greater user customization. The options for these CSS changes could be handled by an options menu so as to keep the main display clean.
