@@ -92,8 +92,6 @@ Currently the largest function in the JS is for accessing the correct value(s) f
 
 ### Responsive Design
 
-![](/images/responsive.jpeg)
-
 This solitaire webapp is coded for mobile first; its default styling is for small screens, and it has a media query with styling for screens at least 540px wide. The click events which run the functionality of the game transfer especially well to the mobile platform. 
 
 ## Next Steps
