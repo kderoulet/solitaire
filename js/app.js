@@ -359,9 +359,9 @@ function checkWin() {
 // renders the top table and cards
 function renderTop() {
     if (deck.length > 0) {
-        $('.deck').addClass('card').addClass('back-red');
+        $('.deck').addClass('card').addClass('back-blue');
     }
-    else $(".deck").removeClass('back-red');
+    else $(".deck").removeClass('back-blue');
     if (deckPile.length > 0) {
         $('.deckPile').removeClass().addClass('deckPile').addClass('card')
         deckPileState = $('deckPile')
@@ -507,19 +507,19 @@ function renderPiles() {
 // Flips over the first card in each board array
 function flipFirstCard() {
     if (boardPile1.length > 0); {
-        $(boardState1[boardPile1.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState1[boardPile1.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile2.length > 0); {
-        $(boardState2[boardPile2.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState2[boardPile2.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile3.length > 0); {
-        $(boardState3[boardPile3.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState3[boardPile3.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile4.length > 0); {
-        $(boardState4[boardPile4.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState4[boardPile4.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile5.length > 0); {
-        $(boardState5[boardPile5.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState5[boardPile5.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile6.length > 0); {
-        $(boardState6[boardPile6.length-1]).addClass('faceUp').removeClass('back-red')}
+        $(boardState6[boardPile6.length-1]).addClass('faceUp').removeClass('back-blue')}
     if (boardPile7.length > 0); {
-        $(boardState7[boardPile7.length-1]).addClass('faceUp').removeClass('back-red')}};
+        $(boardState7[boardPile7.length-1]).addClass('faceUp').removeClass('back-blue')}};
 
 // Flips over all cards stacked on top of flipped cards--catch-all for 'faceUp class'
 function flipAllOtherCards() {
@@ -544,26 +544,26 @@ function flipOtherCards(arr) {
 // class, then the card is rendered as a cardback
 function renderFaceDowns() {  
 for (var i = 0; i < boardPile1.length; i++)
-    if ($(boardState1[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState1[i]).addClass('back-red')}
+    if ($(boardState1[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState1[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile2.length; i++)
-    if ($(boardState2[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState2[i]).addClass('back-red')}
+    if ($(boardState2[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState2[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile3.length; i++)
-    if ($(boardState3[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState3[i]).addClass('back-red')}
+    if ($(boardState3[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState3[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile4.length; i++)
-    if ($(boardState4[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState4[i]).addClass('back-red')}
+    if ($(boardState4[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState4[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile5.length; i++)
-    if ($(boardState5[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState5[i]).addClass('back-red')}
+    if ($(boardState5[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState5[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile6.length; i++)
-    if ($(boardState6[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState6[i]).addClass('back-red')}
+    if ($(boardState6[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState6[i]).addClass('back-blue')}
 for (var i = 0; i < boardPile7.length; i++)
-    if ($(boardState7[i]).hasClass('faceUp' || 'empty' || 'back-red')) {}
-    else {$(boardState7[i]).addClass('back-red')}
+    if ($(boardState7[i]).hasClass('faceUp' || 'empty' || 'back-blue')) {}
+    else {$(boardState7[i]).addClass('back-blue')}
 }
 
 // Assigns a CSS class and associated image based on array data
@@ -702,7 +702,7 @@ function makeFaceUpSolid() {
     $('.faceUp').not('.empty').css('opacity', '.99');
     $('.empty').css('opacity', '0');
     $('.deckPile').css('opacity', '1');
-    $('.back-red').css('opacity', '1');
+    $('.back-blue').css('opacity', '1');
 }
 
 function render() {
